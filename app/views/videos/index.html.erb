@@ -14,16 +14,20 @@
  var player2;
 
  uids =  <%= raw @uids %>
+
+ function getUIDs(){
+  for(var i=0; i< uids.length; i++){
+    return uids[i];
+  }
+ }
+
+ for(var i=0; i< uids.length; i++){
  function onYouTubePlayerAPIReady() {
    player = new YT.Player('ytplayer1', {
      height: '390',
      width: '640',
-     videoId: uids[0]
-   });
-   player2 = new YT.Player('ytplayer2', {
-     height: '390',
-     width: '640',
-     videoId: uids[1]
+     videoId: getUIDs()
    });
  }
+}
 </script>
