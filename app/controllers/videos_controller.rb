@@ -1,6 +1,7 @@
 class VideosController < ApplicationController
 
   def index
+    @tags = Tag.all
     @videos = Video.all
   end
 
@@ -9,7 +10,8 @@ class VideosController < ApplicationController
   end
 
   def create
-    @video =  Video.create(params.require(:video).permit(:link))
+    @video =  Video.create(params.require(:video).permit(:link, :all_tags))
+
     if @video.save
       redirect_to '/'
     else
@@ -22,3 +24,5 @@ class VideosController < ApplicationController
   end
 
 end
+
+# 2.2.0 :030 > Tag.where(:name == "test").inject([]){|accum,tag| accum+tag.videos.to_a}
