@@ -2,6 +2,7 @@ class VideosController < ApplicationController
 
   def index
     @videos = Video.all
+    puts videos_stitch_path
   end
 
   def new
@@ -15,6 +16,11 @@ class VideosController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  #why does this work? Called stitch on paths - doesn't work with stitch custom path
+  def show
+    @playlist = Video.offset(1)
   end
 
 end

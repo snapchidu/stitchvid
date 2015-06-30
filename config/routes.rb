@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :videos
+  get '/videos/stitch', to: 'videos#stitch'
   root to: 'videos#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
