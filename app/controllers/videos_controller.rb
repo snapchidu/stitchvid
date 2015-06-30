@@ -17,7 +17,6 @@ class VideosController < ApplicationController
     end
   end
 
-  #why does this work? Called stitch on paths - doesn't work with stitch custom path
   def stitch
     @playlist = Video.offset(1)
   end
