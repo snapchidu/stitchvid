@@ -9,7 +9,8 @@ class VideosController < ApplicationController
   end
 
   def create
-    @video =  Video.create(params.require(:video).permit(:link))
+    @video =  Video.create(params.require(:video).permit(:link, :all_tags))
+
     if @video.save
       redirect_to '/'
     else
@@ -17,16 +18,10 @@ class VideosController < ApplicationController
     end
   end
 
-  #why does this work? Called stitch on paths - doesn't work with stitch custom path
   def stitch
     @playlist = Video.offset(1)
   end
 
 end
-
-def most_popular
-
-end
-
 
 # 2.2.0 :030 > Tag.where(:name == "test").inject([]){|accum,tag| accum+tag.videos.to_a}
