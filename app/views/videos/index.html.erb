@@ -1,11 +1,11 @@
 <div>
   <%=link_to 'Add Story', new_video_path %>
 
-  <% @tags.all.each do |tag| %>
+  <% @tags.each do |tag| %>
     <div class="row">
       <%=link_to 'Stitch', stitch_path %>
       <% tag.videos.all.each do |video| %>
-        <iframe id="ytplayer" type="text/html" width="720" height="405"
+        <iframe id="ytplayer" type="text/html" width="180" height="101"
         src="https://www.youtube.com/embed/<%=video.uid%>?controls=0&modestbranding=1&autohide=1"
         frameborder="0" allowfullscreen> </iframe>
       <% end %>
