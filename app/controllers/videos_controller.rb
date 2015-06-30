@@ -1,7 +1,7 @@
 class VideosController < ApplicationController
 
   def index
-    @videos = Video.all
+    @tags = Tag.all
   end
 
   def new
@@ -23,3 +23,10 @@ class VideosController < ApplicationController
   end
 
 end
+
+def most_popular
+
+end
+
+
+# 2.2.0 :030 > Tag.where(:name == "test").inject([]){|accum,tag| accum+tag.videos.to_a}
