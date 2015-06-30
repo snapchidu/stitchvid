@@ -4,4 +4,17 @@ class VideosController < ApplicationController
     @videos = Video.all
   end
 
+  def new
+    @video = Video.new
+  end
+
+  def create
+    @video =  Video.create(params.require(:video).permit(:link))
+    if @video.save
+      redirect_to '/'
+    else
+      render 'new'
+    end
+  end
+
 end
