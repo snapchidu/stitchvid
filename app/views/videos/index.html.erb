@@ -1,11 +1,38 @@
-<div>
-  <%=link_to 'Add Story', new_video_path %>
+<body>
+  <div class="main-container container-fluid">
+    <div class="bigbutton">
+      <%=link_to 'Add Story', new_video_path, class: "btn-big btn-info" %>
+    </div>
 
-  <%=link_to 'Stitch', stitch_path %>
-  <%@videos.each do |video| %>
-    <iframe id="ytplayer" type="text/html" width="720" height="405"
-    src="https://www.youtube.com/embed/<%=video.uid%>?controls=0&modestbranding=1&autohide=1"
-    frameborder="0" allowfullscreen> </iframe>
-  <%end%>
-</div>
+        <section class="row"> 
+        <div class="hashcontainer">
+            <p><a href"#">#Wimbledon</p>
+            <%=link_to 'Stitch', stitch_path, class: "btn btn-info" %>
+          </div> 
+            <%@videos.each do |video| %>
+              <iframe id="ytplayer" type="text/html" width="256" height="144" src="https://www.youtube.com/embed/<%=video.uid%>?controls=0&modestbranding=1&autohide=1" frameborder="0" allowfullscreen> </iframe>
+            <%end%>
+        </section>
+
+        <section class="row"> 
+        <div class="hashcontainer">
+            <p><a href"#">#Wimbledon</p>
+            <%=link_to 'Stitch', stitch_path, class: "btn btn-info" %>
+          </div> 
+            <%@videos.each do |video| %>
+              <iframe id="ytplayer" type="text/html" width="256" height="144" src="https://www.youtube.com/embed/<%=video.uid%>?controls=0&modestbranding=1&autohide=1" frameborder="0" allowfullscreen> </iframe>
+            <%end%>
+        </section>
+
+        <section class="row"> 
+        <div class="hashcontainer">
+            <p><a href"#">#Wimbledon</p>
+            <%=link_to 'Stitch', stitch_path, class: "btn btn-info" %>
+          </div> 
+            <%@videos.each do |video| %>
+              <iframe id="ytplayer" type="text/html" width="256" height="144" src="https://www.youtube.com/embed/<%=video.uid%>?controls=0&modestbranding=1&autohide=1" frameborder="0" allowfullscreen> </iframe>
+            <%end%>
+        </section>
+  </div> 
+</body>
 
