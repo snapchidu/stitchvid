@@ -1,0 +1,9 @@
+<% if @playlist %>
+  <iframe id="ytplayer" type="text/html" width="720" height="405"
+      src="https://www.youtube.com/embed/<%=Video.first.uid%>?controls=0&modestbranding=1&autohide=1
+      <%- if @playlist != nil%>
+        &playlist=<%= @playlist.pluck(:uid).join(',') -%>
+      <% end -%>"
+      frameborder="0" allowfullscreen>
+  </iframe>
+<%end%>
