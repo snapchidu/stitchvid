@@ -9,7 +9,7 @@ feature 'Videos' do
 
   #test shows videos
   scenario 'shows videos on homepage' do
-    Video.create(link: "https://www.youtube.com/watch?t=32&v=3Fhx2YgbskE")
+    Video.create(link: "https://www.youtube.com/watch?v=lmyZMtPVodo")
     visit('/')
     expect(page).to have_css('iframe')
   end
@@ -18,7 +18,7 @@ feature 'Videos' do
   scenario 'uploads videos' do
     visit '/'
     click_link 'Add Story'
-    fill_in("Link", with: "https://www.youtube.com/watch?t=32&v=3Fhx2YgbskE")
+    fill_in("Link", with: "https://www.youtube.com/watch?v=lmyZMtPVodo")
     click_button 'Create Video'
 
     expect(current_path).to eq('/')
