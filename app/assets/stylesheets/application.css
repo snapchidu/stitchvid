@@ -1,3 +1,51 @@
+/*Buttons*/
+
+.bigbutton {
+  text-align: center;
+}
+
+.btn-big {
+
+  font-size: 50px;
+  width: 10em;
+}
+
+/*Containers*/
+
+.vidcontainer1{
+  margin: 0 auto;
+  position: absolute;
+  margin-top: 200px;
+  margin-left: 50px;
+
+}
+
+/*Sections*/
+
+.row{
+ text-align: center;
+ width: 0 auto;
+ height: 15em;
+ background-color: #444;
+ border-radius: 1em;
+ padding:1em;
+ margin-top:2em; 
+ box-shadow:1em 1em 3em rgba(0,0,0,.3);
+ overflow-x: scroll;
+ overflow-y: hidden;
+ white-space: nowrap;
+
+
+}
+
+.hashcontainer{
+
+ text-align: left;
+ float: left;
+ white-space: nowrap;
+
+
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
