@@ -194,4 +194,8 @@ DEPENDENCIES
   yt (~> 0.13.7)
 
 BUNDLED WITH
+<<<<<<< HEAD
    1.10.3
+=======
+   1.10.4
+>>>>>>> 21e3ee03e24b540ed749dd2e26f35ea8c207cedc
