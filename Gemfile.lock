@@ -192,3 +192,12 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
   yt (~> 0.13.7)
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+BUNDLED WITH
+   1.10.3
+=======
+>>>>>>> a335e71893b940dd15fdf6cc3d73e35db8f71eb7
+>>>>>>> 5aa65a1e6b826ed0efc825752f8909902981e164

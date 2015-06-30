@@ -1,8 +1,20 @@
+<% if @video.errors.any? %>
+ <section id="errors" >
+   <h2> <%= pluralize(@video.errors.count, "error") %> prohibited this restaurant from being saved: </h2>
+   <ul>
+     <% @video.errors.full_messages.each do |message| %>
+       <li><%= message %></li>
+     <% end %>
+   </ul>
+ </section>
+<% end %>
+
 <%= form_for @video do |f| %>
 
   <%= f.label :link %>
   <%= f.text_field :link %>
-
+  <%= f.label "Tag" %>
+  <%= f.text_field :all_tags %>
   <%= f.submit %>
 
 <% end %>
