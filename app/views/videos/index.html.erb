@@ -1,4 +1,7 @@
 <div>
+  <%=link_to 'Add Story', new_video_path %>
+
+  <%=link_to 'Stitch', stitch_path %>
   <%@videos.each do |video| %>
     <iframe id="ytplayer" type="text/html" width="720" height="405"
     src="https://www.youtube.com/embed/<%=video.uid%>?controls=0&modestbranding=1&autohide=1"
