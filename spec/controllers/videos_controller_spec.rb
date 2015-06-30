@@ -1,20 +1,17 @@
 require 'rails_helper'
 
 feature 'Videos' do
-  #test button add story
   scenario 'show button to add story on homepage' do
     visit('/')
     expect(page).to have_link('Add Story')
   end
 
-  #test shows videos
   scenario 'shows videos on homepage' do
     Video.create(link: "https://www.youtube.com/watch?v=lmyZMtPVodo")
     visit('/')
     expect(page).to have_css('iframe')
   end
 
-  #test upload then shows homepage
   scenario 'uploads videos' do
     visit '/'
     click_link 'Add Story'
@@ -25,4 +22,12 @@ feature 'Videos' do
     expect(page).to have_css('iframe')
   end
 
+  scenario 'goes to a play all view when Stitch view is clicked' do
+    Video.create(link: "https://www.youtube.com/watch?v=9LRyNC-n98k")
+    Video.create(link: "https://www.youtube.com/watch?v=qXsT2KtYZOM")
+    visit '/'
+    click_link 'Stitch'
+    expect(current_path).to eq('/stitch')
+    expect(page).to have_css('iframe')
+  end
 end
