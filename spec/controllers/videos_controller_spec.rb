@@ -33,4 +33,17 @@ feature 'Videos' do
     expect(current_path).to eq('/stitch')
     expect(page).to have_css('iframe')
   end
+
+  xscenario 'shows tag name with associated videos' do
+
+  end
+
+  xscenario 'videos sit in their tags row' do
+
+  end
+
+  xscenario 'videos do not sit outside their tags row' do
+
+  end
+
 end
