@@ -1,3 +1,87 @@
+/*page text*/
+
+
+
+
+
+
+/*Buttons*/
+
+.bigbutton {
+  text-align: center;
+}
+
+.btn-big {
+
+  font-size: 50px;
+  width: 10em;
+}
+
+
+.submitbtn { color: black;text-align: center; margin-top: 5em;}
+
+
+/*input fields */
+
+.inputform{font-size: 20px;text-align: center;margin-top: 5em;}
+
+
+.formcontainer{ width:30em; height:15em; margin:0 auto; margin-top: 5em; background-color:#bdc3c7; border-radius: 10px; padding:1em;
+ box-shadow:1px 1px 3px rgba(0,0,0,.3); color: white;}
+
+
+ .inputfields{font-size: 1em;color: black; text-align: center; margin-top: 2em;}
+
+/*Containers*/
+
+.row-container{
+ /*text-align: center;*/
+ width: 0 auto;
+ height: 25em;
+ border: 2px solid black;
+ margin-top:2em; 
+ /*box-shadow:1em 1em 3em rgba(0,0,0,.3);*/
+ overflow-x: scroll;
+ overflow-y: hidden;
+ white-space: nowrap;
+
+}
+
+.row-video{
+
+ position: relative;
+ width: 90%;
+ margin-left: 5.5em;
+ margin-top: 5em;
+ height: 15em;
+ background-color: #444;
+ /*box-shadow:1em 1em 3em rgba(0,0,0,.3);*/
+ overflow-x: scroll;
+ overflow-y: hidden;
+ white-space: nowrap;
+
+
+}
+
+.hashcontainer{
+
+ float: left;
+ white-space: nowrap;
+ position: relative;
+ margin-top: 3em;
+ width: 5em;
+
+}
+
+.hashcontainer p { 
+
+  margin-left: 0.5em;
+  margin-top: 2em;
+  
+}
+
+iframe { margin: 2em 0 0 2.5em;}
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -13,3 +97,87 @@
  *= require_tree .
  *= require_self
  */
+
+ /*Buttons*/
+
+.bigbutton {
+  text-align: center;
+}
+
+.btn-big {
+
+  font-size: 50px;
+  width: 10em;
+}
+
+
+.submitbtn { color: black;text-align: center; margin-top: 5em;}
+
+
+/*input fields */
+
+.inputform{font-size: 20px;text-align: center;margin-top: 5em;}
+
+
+.formcontainer{ width:30em; height:15em; margin:0 auto; margin-top: 5em; background-color:#bdc3c7; border-radius: 10px; padding:1em;
+ box-shadow:1px 1px 3px rgba(0,0,0,.3); color: white;}
+
+
+ .inputfields{font-size: 1em;color: black; text-align: center; margin-top: 2em;}
+
+/*Containers*/
+
+.row-container{
+ /*text-align: center;*/
+ width: 0 auto;
+ height: 25em;
+ border: 2px solid black;
+ margin-top:2em;
+ /*box-shadow:1em 1em 3em rgba(0,0,0,.3);*/
+ overflow-x: scroll;
+ overflow-y: hidden;
+ white-space: nowrap;
+
+}
+
+.row-video{
+
+ position: relative;
+ width: 90%;
+ margin-left: 5.5em;
+ margin-top: 5em;
+ height: 15em;
+ background-color: #444;
+ /*box-shadow:1em 1em 3em rgba(0,0,0,.3);*/
+ overflow-x: scroll;
+ overflow-y: hidden;
+ white-space: nowrap;
+
+
+}
+
+.hashcontainer{
+
+ float: left;
+ white-space: nowrap;
+ position: relative;
+ margin-top: 3em;
+ width: 5em;
+
+}
+
+.hashcontainer p {
+
+  margin-left: 0.5em;
+  margin-top: 2em;
+
+}
+
+iframe { margin: 2em 0 0 2.5em;}
+
+#stitch {
+
+  height: 30px;
+  width: 30px;
+
+}
