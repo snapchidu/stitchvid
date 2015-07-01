@@ -4,6 +4,11 @@
   <% @tags.each do |tag| %>
     <div class="row">
       <%=link_to 'Stitch', stitch_path %>
+      <!-- replace with button -->
+        <iframe id="stitch" type="text/html" width="400" height="300"
+          src="https://www.youtube.com/embed/<%=tag.videos.first.uid%>?controls=0&modestbranding=1&autohide=1&playlist=<%= tag.videos.offset(1).pluck(:uid).join(',') -%>"
+          frameborder="0" allowfullscreen>
+        </iframe>
       <% tag.videos.all.each do |video| %>
         <iframe id="ytplayer" type="text/html" width="180" height="101"
         src="https://www.youtube.com/embed/<%=video.uid%>?controls=0&modestbranding=1&autohide=1"
