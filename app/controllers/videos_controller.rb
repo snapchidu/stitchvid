@@ -2,6 +2,7 @@ class VideosController < ApplicationController
 
   def index
     @tags = Tag.all
+    
   end
 
   def new
@@ -9,8 +10,8 @@ class VideosController < ApplicationController
   end
 
   def create
-    @video =  Video.create(params.require(:video).permit(:link, :all_tags))
 
+    @video =  Video.create(params.require(:video).permit(:link, :all_tags))
     if @video.save
       redirect_to '/'
     else
