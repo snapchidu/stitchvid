@@ -1,28 +1,7 @@
 
-  <body>
-  <div class="main-container container-fluid">
-    <div class="bigbutton">
-      <%=link_to 'Add Story', new_video_path, class: "btn-big btn-info" %>
-    </div>
 
-    <% @tags.all.each do |tag| %>
-    <section class="row-container">
-      <div class="hashcontainer">
-        <p><%=tag.name%></p>
-        <br>
-        <br>
-        <%=link_to 'Stitch', stitch_path, class: "btn btn-info" %>
-      </div>
-      <% tag.videos.all.each do |video| %>
-        <div class="row-video">
-          <iframe frameborder="0" width="256" height="144" id="ytplayer" name="ytplayer" src= "https://www.youtube.com/embed/<%=video.uid%>?controls=0&modestbranding=1&autohide=1"></iframe>
-        </div>
-      <% end %>
-    </section>
-    <% end %>
-  </div>
-</div>
 
+<body>
 
  <div class="main-container container-fluid">
    <div class="bigbutton">
@@ -35,7 +14,7 @@
        <p><%=tag.name%></p>
        <br>
        <br>
-       <%=link_to 'Stitch', '#', class: "btn btn-info" %>
+       <button class='btn btn-info stitch-btn' rel="4eYSpIz2FjU">Stitch </button>
      </div>
    <div class="stitch">
      <iframe type="text/html" width="400" height="300"
@@ -55,7 +34,21 @@
  </div>
 </div>
 
-<script>$(document).ready( function() {
+// <script>
+$(document).ready( function() {
   $(".stitch").hide()
+
+  // $('.stitch-btn').click(function(){
+  //
+  //   $('.btn').YouTubePopup({ idAttribute: 'id' });
+  //
+  // $('.stitch').show();
 });
+</script>
+
+<script type="text/javascript">
+  $(function (){
+    $('.stitch-btn').YouTubeModal({ idAttribute: 'rel', width:640, height:480 });
+  });
+
 </script>
