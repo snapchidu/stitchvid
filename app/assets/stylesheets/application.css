@@ -1,3 +1,10 @@
+/*page text*/
+
+
+
+
+
+
 /*Buttons*/
 
 .bigbutton {
@@ -10,6 +17,9 @@
   width: 10em;
 }
 
+
+.submitbtn { color: black;text-align: center; margin-top: 5em;}
+
 /*Containers*/
 
 .vidcontainer1{
@@ -19,6 +29,17 @@
   margin-left: 50px;
 
 }
+
+/*input fields */
+
+.inputform{font-size: 20px;text-align: center;margin-top: 5em;}
+
+
+.formcontainer{ width:30em; height:15em; margin:0 auto; margin-top: 5em; background-color:#bdc3c7; border-radius: 10px; padding:1em;
+ box-shadow:1px 1px 3px rgba(0,0,0,.3); color: white;}
+
+
+ .inputfields{font-size: 1em;color: black; text-align: center; margin-top: 2em;}
 
 /*Sections*/
 
@@ -48,6 +69,11 @@
 .field_with_errors {
   color: red;
 }
+
+
+
+
+
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
