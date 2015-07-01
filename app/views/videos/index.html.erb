@@ -6,17 +6,20 @@
     </div>
 
     <% @tags.all.each do |tag| %>
-    <section class="row">      
+    <section class="row-container">     
       <div class="hashcontainer">
-        <%=tag.name%>
+        <p><%=tag.name%></p>
+        <br>
+        <br>
         <%=link_to 'Stitch', stitch_path, class: "btn btn-info" %>
       </div>
       <% tag.videos.all.each do |video| %>
-        <div class="row">        
-          <iframe frameborder="0" width="256" height="144" id="ytplayer" name="ytplayer" src= "https://www.youtube.com/embed/%3C%=video.uid%%3E?controls=0&modestbranding=1&autohide=1"></iframe> 
+        <div class="row-video">        
+          <iframe frameborder="0" width="256" height="144" id="ytplayer" name="ytplayer" src= "https://www.youtube.com/embed/<%=video.uid%>?controls=0&modestbranding=1&autohide=1"></iframe> 
         </div>
       <% end %>      
     </section>
     <% end %>
   </div>
 </div>
+
