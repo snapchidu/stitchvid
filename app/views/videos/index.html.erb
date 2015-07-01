@@ -1,4 +1,4 @@
-<div>
+
   <body>
   <div class="main-container container-fluid">
     <div class="bigbutton">
@@ -6,7 +6,7 @@
     </div>
 
     <% @tags.all.each do |tag| %>
-    <section class="row-container">     
+    <section class="row-container">
       <div class="hashcontainer">
         <p><%=tag.name%></p>
         <br>
@@ -14,12 +14,48 @@
         <%=link_to 'Stitch', stitch_path, class: "btn btn-info" %>
       </div>
       <% tag.videos.all.each do |video| %>
-        <div class="row-video">        
-          <iframe frameborder="0" width="256" height="144" id="ytplayer" name="ytplayer" src= "https://www.youtube.com/embed/<%=video.uid%>?controls=0&modestbranding=1&autohide=1"></iframe> 
+        <div class="row-video">
+          <iframe frameborder="0" width="256" height="144" id="ytplayer" name="ytplayer" src= "https://www.youtube.com/embed/<%=video.uid%>?controls=0&modestbranding=1&autohide=1"></iframe>
         </div>
-      <% end %>      
+      <% end %>
     </section>
     <% end %>
   </div>
 </div>
 
+
+ <div class="main-container container-fluid">
+   <div class="bigbutton">
+     <%=link_to 'Add Story', new_video_path, class: "btn-big btn-info" %>
+   </div>
+
+   <% @tags.all.each do |tag| %>
+   <section class="row-container">
+     <div class="hashcontainer">
+       <p><%=tag.name%></p>
+       <br>
+       <br>
+       <%=link_to 'Stitch', '#', class: "btn btn-info" %>
+     </div>
+   <div class="stitch">
+     <iframe type="text/html" width="400" height="300"
+        src="https://www.youtube.com/embed/<%=tag.videos.first.uid%>?controls=0&modestbranding=1&autohide=1&playlist=<%= tag.videos.offset(1).pluck(:uid).join(',') -%>"
+        frameborder="0" allowfullscreen>
+      </iframe>
+   </div>
+   <div class="row-video">
+     <% tag.videos.all.each do |video| %>
+
+         <iframe frameborder="0" width="256" height="144" id="ytplayer" name="ytplayer" src= "https://www.youtube.com/embed/<%=video.uid%>?controls=0&modestbranding=1&autohide=1"></iframe>
+
+     <% end %>
+   </div>
+   </section>
+   <% end %>
+ </div>
+</div>
+
+<script>$(document).ready( function() {
+  $(".stitch").hide()
+});
+</script>

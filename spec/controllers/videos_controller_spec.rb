@@ -7,7 +7,8 @@ feature 'Videos' do
   end
 
   scenario 'shows videos on homepage' do
-    Video.create(link: "https://www.youtube.com/watch?v=lmyZMtPVodo")
+    t = Tag.create(name: "test")
+    t.videos.create(link: "https://www.youtube.com/watch?v=lmyZMtPVodo")
     visit('/')
     expect(page).to have_css('iframe')
   end
@@ -16,6 +17,7 @@ feature 'Videos' do
     visit '/'
     click_link 'Add Story'
     fill_in("Link", with: "https://www.youtube.com/watch?v=lmyZMtPVodo")
+    fill_in("All tags", with: "Test")
     click_button 'Create Video'
 
     expect(current_path).to eq('/')
@@ -23,8 +25,9 @@ feature 'Videos' do
   end
 
   scenario 'goes to a play all view when Stitch view is clicked' do
-    Video.create(link: "https://www.youtube.com/watch?v=9LRyNC-n98k")
-    Video.create(link: "https://www.youtube.com/watch?v=qXsT2KtYZOM")
+    t = Tag.create(name: "test")
+    t.videos.create(link: "https://www.youtube.com/watch?v=9LRyNC-n98k")
+    t.videos.create(link: "https://www.youtube.com/watch?v=qXsT2KtYZOM")
     visit '/'
     click_link 'Stitch'
     expect(current_path).to eq('/stitch')
