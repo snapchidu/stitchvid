@@ -45,9 +45,10 @@ feature 'Videos' do
     # visit '/'
     add_video()
     add_video('https://www.youtube.com/watch?v=qXsT2KtYZOM')
-    click_link 'Stitch test'
+    # click_link 'Stitch test'
+    page.find("#test-stitch").click
     # expect(page).to have_css('iframe')
-    page.html.should include('src="https://www.youtube.com/embed/lmyZMtPVodo?controls=0&modestbranding=1&autohide=1&playlist=qXsT2KtYZOM"')
+    expect(page.html).to include('src="https://www.youtube.com/embed/lmyZMtPVodo?controls=0&modestbranding=1&autohide=1&playlist=qXsT2KtYZOM"')
   end
 
   scenario 'shows tag name with associated video' do

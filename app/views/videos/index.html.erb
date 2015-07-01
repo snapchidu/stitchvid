@@ -15,7 +15,7 @@
        <p><%=tag.name%></p>
        <br>
        <br>
-       <button class='btn btn-info stitch-btn' data-playlist="<%=tag.videos.pluck(:uid).join(',') %>">Stitch <br><%=tag.name %></button>
+       <button class='btn btn-info stitch-btn' id='<%= tag.name -%>-stitch' data-playlist="<%=tag.videos.pluck(:uid).join(',') %>">Stitch <br><%=tag.name %></button>
      </div>
    <div class="stitch">
      <iframe type="text/html" width="400" height="300"
