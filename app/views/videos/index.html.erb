@@ -3,6 +3,7 @@
 
 <body>
 
+
  <div class="main-container container-fluid">
    <div class="bigbutton">
      <%=link_to 'Add Story', new_video_path, class: "btn-big btn-info" %>
@@ -14,7 +15,7 @@
        <p><%=tag.name%></p>
        <br>
        <br>
-       <button class='btn btn-info stitch-btn' rel="4eYSpIz2FjU">Stitch </button>
+       <button class='btn btn-info stitch-btn' data-playlist="<%=tag.videos.pluck(:uid).join(',') %>">Stitch <br><%=tag.name %></button>
      </div>
    <div class="stitch">
      <iframe type="text/html" width="400" height="300"
@@ -34,21 +35,13 @@
  </div>
 </div>
 
-// <script>
+<script type="text/javascript">
+
 $(document).ready( function() {
   $(".stitch").hide()
-
-  // $('.stitch-btn').click(function(){
-  //
-  //   $('.btn').YouTubePopup({ idAttribute: 'id' });
-  //
-  // $('.stitch').show();
 });
-</script>
 
-<script type="text/javascript">
-  $(function (){
-    $('.stitch-btn').YouTubeModal({ idAttribute: 'rel', width:640, height:480 });
-  });
-
+$(function (){
+    $('.stitch-btn').YouTubePlaylistModal({ autoplay: 1, width:640, height:480 });
+});
 </script>
