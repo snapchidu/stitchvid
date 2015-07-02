@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Upload video</h1>
-    <%= form_for @video_upload do |f| %>
+    <%= form_for [@video_upload, @tag] do |f| %>
 
       <div class="form-group">
         <%= f.label :file %>
@@ -17,6 +17,10 @@
         <%= f.text_area :description, class: 'form-control', cols: 3 %>
       </div>
 
+       <div class="form-group">
+        <%= f.label :tag %>
+        <%= f.text_area :all_tags, class: 'form-control', cols: 3 %>
+      </div>
       <%= f.submit 'Upload', class: 'btn btn-primary' %>
     <% end %>
 </div>
