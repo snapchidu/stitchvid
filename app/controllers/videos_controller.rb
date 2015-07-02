@@ -2,7 +2,6 @@ class VideosController < ApplicationController
 
   def index
     @tags = Tag.top(5)
-
   end
 
   def new

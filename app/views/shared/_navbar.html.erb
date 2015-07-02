@@ -15,14 +15,18 @@
         <ul class="nav navbar-nav">
          <li class="active"><span class="sr-only">(current)</span></a></li>
            <li><a href="#">Home</a></li>
-           <li><a href="#">Sign in</a></li>
-           <li><a href="#">Sign up</a></li>
+           <!-- <li><a href="#">Sign in</a></li>
+           <li><a href="#">Sign up</a></li> -->
+           <li><%= link_to 'Log Out', logout_path, method: :delete %></li>
+           <li><%= link_to 'Log In', '/auth/google_oauth2' %></li>
+           <li><%= link_to 'Add Video', new_video_upload_path %></li>
+
         </ul>
         </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
         </nav>
 
-     
+
 
 
 
