@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
   resources :videos
   root to: 'videos#index'
+
+  get '/auth/:provider/callback', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy', as: :logout
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
