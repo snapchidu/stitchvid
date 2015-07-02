@@ -8,7 +8,8 @@ class VideoUploadsController < ApplicationController
                                   description: params[:video_upload][:description],
                                   file: params[:video_upload][:file].try(:tempfile).try(:to_path))
 
-    @tag = params[:all_tags]
+    @tag = params[:video_upload][:all_tags]
+    puts @tag
 
     if @video_upload.save
       uploaded_video = @video_upload.upload!(current_user)
