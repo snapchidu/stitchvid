@@ -2,7 +2,6 @@ class VideosController < ApplicationController
 
   def index
     @tags = Tag.all
-    
   end
 
   def new

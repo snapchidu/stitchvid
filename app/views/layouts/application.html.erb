@@ -18,6 +18,9 @@
 
     <body>
       <%= alert %>
+      <%flash.each do |value| %>
+        <%=value%>
+      <%end%>
       <%= notice %>
       <%= render 'shared/navbar' %>
       <%= yield %>
