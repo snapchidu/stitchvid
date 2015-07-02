@@ -2,6 +2,7 @@ class VideoUpload < ActiveType::Object
   attribute :file, :varchar
   attribute :title, :varchar
   attribute :description, :text
+  attribute :all_tags, :text
 
   validates :file, presence: true
   validates :title, presence: true
