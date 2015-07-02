@@ -74,4 +74,16 @@ feature 'Videos' do
   #
   # end
 
+  scenario 'shows tags by popularity: tag with three videos, then two, then one' do
+    add_video('https://www.youtube.com/watch?v=riZck9O-kBU','test1')
+    add_video('https://www.youtube.com/watch?v=CAA_zE5a3JQ','test2')
+    add_video('https://www.youtube.com/watch?v=gcgt2aRFdt0','test3')
+    add_video('https://www.youtube.com/watch?v=VBmCJEehYtU','test2')
+    add_video('https://www.youtube.com/watch?v=fWNaR-rxAic','test3')
+    add_video('https://www.youtube.com/watch?v=uPMHzPBrZeI','test3')
+    visit '/'
+    expect('test3').to appear_before('test2')
+    expect('test2').to appear_before('test1')
+  end
+
 end
