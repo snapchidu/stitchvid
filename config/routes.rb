@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
   resources :videos
+
+  resources :video_uploads, only: [:new, :create]
+
   root to: 'videos#index'
 
   get '/auth/:provider/callback', to: 'sessions#create'
