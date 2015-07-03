@@ -1,7 +1,3 @@
-
-
-
-
 <% if @video.errors.any? %>
  <section id="errors" >
    <h2> <%= pluralize(@video.errors.count, "error") %> prohibited this restaurant from being saved: </h2>
@@ -14,31 +10,34 @@
 <% end %>
 
 
+<div class="container">
+  <div class="inputform">
 
-<div class="inputform">
-
-  <h1>Add Story</h1>
-
-
-
-  <div class="formcontainer">
-
-    <div class="inputfields">
-<%= form_for @video do |f| %>
-
-  <%= f.label :link %>
-  <%= f.text_field :link %>
-  <%= f.label :all_tags %>
-  <%= f.text_field :all_tags %>
+    <h1>Add Story</h1>
 
 
-  <div class="submitbtn">
-  <%= f.submit %>
-  </div>
 
-</div>
+    <div class="formcontainer">
 
-<% end %>
+      <%= form_for @video do |f| %>
+
+        <div class="form-group">
+          <%= f.label :link %>
+          <%= f.text_field :link %>
+        </div>
+
+        <div class='form-group'>
+          <%= f.label :all_tags %>
+          <%= f.text_field :all_tags %>
+        </div>
+
+      <%= f.submit 'Upload', class: 'btn btn-primary' %>
 
   </div>
+
+  <% end %>
+
+    </div>
+  </div>
+
 </div>

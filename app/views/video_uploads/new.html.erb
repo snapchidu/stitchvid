@@ -24,6 +24,11 @@
         </div>
         <%= f.submit 'Upload', class: 'btn btn-primary' %>
       <% end %>
+
+      </br>
+      </br>
+
+      <p><%= link_to 'or add a link to your stitch', new_video_path %></p>
   </div>
 <% else %>
   <p> <a href="/auth/google_oauth2">Log in with Google+</a> to post a video </p>
