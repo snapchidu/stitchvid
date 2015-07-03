@@ -15,19 +15,19 @@
        <p><%=tag.name%></p>
        <br>
        <br>
-       <button class='btn btn-info stitch-btn' id='<%= tag.name -%>-stitch' data-playlist="<%=tag.videos.pluck(:uid).join(',') %>">Stitch <br><%=tag.name %></button>
+       <button class='btn btn-info stitch-btn' id='<%= tag.name -%>-stitch' data-playlist="<%=tag.videos.published.pluck(:uid).join(',') %>">Stitch <br><%=tag.name %></button>
      </div>
    <div class="stitch">
-     <iframe type="text/html" width="400" height="300"
-        src="https://www.youtube.com/embed/<%=tag.videos.first.uid%>?controls=0&modestbranding=1&autohide=1&playlist=<%= tag.videos.published.offset(1).pluck(:uid).join(',') -%>"
-        frameborder="0" allowfullscreen>
-      </iframe>
+     <% if tag.videos.published.count > 0 %>
+       <iframe type="text/html" width="400" height="300"
+          src="https://www.youtube.com/embed/<%=tag.videos.published.first.uid%>?controls=0&modestbranding=1&autohide=1&playlist=<%= tag.videos.published.offset(1).pluck(:uid).join(',') -%>"
+          frameborder="0" allowfullscreen>
+        </iframe>
+      <% end %>
    </div>
    <div class="row-video">
      <% tag.videos.published.each do |video| %>
-
-         <iframe frameborder="0" width="256" height="144" id="ytplayer" name="ytplayer" src= "https://www.youtube.com/embed/<%=video.uid%>?controls=0&modestbranding=1&autohide=1"></iframe>
-
+        <iframe frameborder="0" width="256" height="144" id="ytplayer" name="ytplayer" src= "https://www.youtube.com/embed/<%=video.uid%>?controls=0&modestbranding=1&autohide=1"></iframe>
      <% end %>
    </div>
    </section>
