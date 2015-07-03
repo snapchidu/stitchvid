@@ -1,0 +1,19 @@
+{
+  "name": "stitchvid",
+  "version": "1.0.0",
+  "description": "[![Build Status](https://travis-ci.org/snapchidu/stitchvid.svg?branch=develop)](https://travis-ci.org/snapchidu/stitchvid)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/snapchidu/stitchvid.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/snapchidu/stitchvid/issues"
+  },
+  "homepage": "https://github.com/snapchidu/stitchvid"
+}
