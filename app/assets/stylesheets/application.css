@@ -29,6 +29,7 @@
 
 .submitbtn { color: black;text-align: center; margin-top: 5em;}
 
+.stitch-btn { display: inline-block;}
 
 /*input fields */
 
@@ -46,7 +47,7 @@
 .row-container{
  /*text-align: center;*/
  width: 0 auto;
- height: 25em;
+ height: 37em;
  border: 2px solid black;
  margin-top:2em;
  /*box-shadow:1em 1em 3em rgba(0,0,0,.3);*/
@@ -72,22 +73,8 @@
 
 }
 
-.hashcontainer{
-
- float: left;
- white-space: nowrap;
- position: relative;
- margin-top: 3em;
- width: 5em;
-
-}
-
-.hashcontainer p {
-
-  margin-left: 0.5em;
-  margin-top: 2em;
-
-}
+#tagname { text-align: center;}
+.stitch-btn { margin-left: 47.5%; margin-top: 3%; }
 
 iframe { margin: 2em 0 0 2.5em;}
 
@@ -98,6 +85,18 @@ iframe { margin: 2em 0 0 2.5em;}
 
 }
 
-@media (max-width: 500px) {
-  p { color: red;}
+.sample{ float: left;}
+
+@media (max-width: 400px) {
+
+  .sample{float: right;}
+
+  #tagname { text-align: center;}
+
+  .row-container { border: none;}
+
+  .stitch-btn { display: none !important;}
+
+  .add { margin-top: 2.5%; margin-left: 47%;}
+
 }
