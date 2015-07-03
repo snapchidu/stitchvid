@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/snapchidu/stitchvid.svg?branch=develop)](https://travis-ci.org/snapchidu/stitchvid)
+
 User stories:
 
 - [] As a user,
