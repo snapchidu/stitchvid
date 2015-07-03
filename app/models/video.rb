@@ -10,4 +10,6 @@ class Video < ActiveRecord::Base
     self.tags.map(&:name).join('')
   end
 
+  scope :published, -> { where(processed: true) }
+  scope :unpublished, -> { where(processed: false) }
 end

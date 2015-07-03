@@ -27,6 +27,7 @@ gem 'autoprefixer-rails'
 gem 'rails-observers'
 gem 'omniauth-google-oauth2'
 gem 'active_type', '~> 0.3.1'
+gem 'httparty'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

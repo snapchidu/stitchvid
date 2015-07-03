@@ -19,12 +19,12 @@
      </div>
    <div class="stitch">
      <iframe type="text/html" width="400" height="300"
-        src="https://www.youtube.com/embed/<%=tag.videos.first.uid%>?controls=0&modestbranding=1&autohide=1&playlist=<%= tag.videos.offset(1).pluck(:uid).join(',') -%>"
+        src="https://www.youtube.com/embed/<%=tag.videos.first.uid%>?controls=0&modestbranding=1&autohide=1&playlist=<%= tag.videos.published.offset(1).pluck(:uid).join(',') -%>"
         frameborder="0" allowfullscreen>
       </iframe>
    </div>
    <div class="row-video">
-     <% tag.videos.all.each do |video| %>
+     <% tag.videos.published.each do |video| %>
 
          <iframe frameborder="0" width="256" height="144" id="ytplayer" name="ytplayer" src= "https://www.youtube.com/embed/<%=video.uid%>?controls=0&modestbranding=1&autohide=1"></iframe>
 
