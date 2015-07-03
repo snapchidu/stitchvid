@@ -373,7 +373,7 @@
     color: 'red',
     controls: 1,
     fs: 1,
-    loop: 0,
+    loop: 1,
     modestbranding: 1,
     showinfo: 0,
     theme: 'dark',

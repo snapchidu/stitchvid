@@ -2,12 +2,7 @@
 
 
 <body>
-
-
  <div class="main-container container-fluid">
-   <div class="bigbutton">
-     <%=link_to 'Add Story', new_video_path, class: "btn-big btn-info" %>
-   </div>
 
    <% @tags.all.each do |tag| %>
    <section class="row-container">
@@ -15,33 +10,33 @@
        <p><%=tag.name%></p>
        <br>
        <br>
-       <button class='btn btn-info stitch-btn' data-playlist="<%=tag.videos.pluck(:uid).join(',') %>">Stitch <br><%=tag.name %></button>
+       <button class='btn btn-default stitch-btn' data-playlist="<%=tag.videos.pluck(:uid).join(',') %>"> Stitch <br><%=tag.name %></button>
      </div>
-   <div class="stitch">
-     <iframe type="text/html" width="400" height="300"
-        src="https://www.youtube.com/embed/<%=tag.videos.first.uid%>?controls=0&modestbranding=1&autohide=1&playlist=<%= tag.videos.offset(1).pluck(:uid).join(',') -%>"
-        frameborder="0" allowfullscreen>
-      </iframe>
-   </div>
-   <div class="row-video">
-     <% tag.videos.all.each do |video| %>
-
-         <iframe frameborder="0" width="256" height="144" id="ytplayer" name="ytplayer" src= "https://www.youtube.com/embed/<%=video.uid%>?controls=0&modestbranding=1&autohide=1"></iframe>
-
-     <% end %>
-   </div>
+     <div class="stitch">
+        <iframe type="text/html" width="400" height="300"
+          src="https://www.youtube.com/embed/<%=tag.videos.first.uid%>?controls=0&modestbranding=1&autohide=1&playlist=<%= tag.videos.offset(1).pluck(:uid).join(',') -%>"
+          frameborder="0" allowfullscreen>
+        </iframe>
+     </div>
+     <div class="row-video">
+        <% tag.videos.all.each do |video| %>
+        <iframe frameborder="0" width="256" height="144" id="ytplayer" name="ytplayer" src= "https://www.youtube.com/embed/<%=video.uid%>?controls=0&modestbranding=1&autohide=1"></iframe>
+        <% end %>
+      </div>
    </section>
    <% end %>
  </div>
-</div>
 
-<script type="text/javascript">
 
-$(document).ready( function() {
-  $(".stitch").hide()
-});
+  <script type="text/javascript">
 
-$(function (){
-    $('.stitch-btn').YouTubePlaylistModal({ autoplay: 1, width:640, height:480 });
-});
-</script>
+  $(document).ready( function() {
+      $(".stitch").hide()
+    });
+
+    $(function (){
+      $('.stitch-btn').YouTubePlaylistModal({ });
+    });
+
+  </script>
+</body>
