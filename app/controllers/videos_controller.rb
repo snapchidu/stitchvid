@@ -16,15 +16,19 @@ class VideosController < ApplicationController
   end
 
   def create
-    @test = params[:link]
+    @test = params[:file]
     puts @test
+
+    @picture = Picture.create(file: params[:file], tag: params[:tag])
+    puts @picture
 
     @video = Video.create(link: params[:link], all_tags: params[:all_tags])
     # @video =  Video.create(params.require(:video).permit(:link, :all_tags))
-    if @video.save
+    if @picture.save
       redirect_to '/'
     else
       render 'new'
     end
   end
+
 end
