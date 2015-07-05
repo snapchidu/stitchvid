@@ -14,6 +14,7 @@
  *= require_self
  */
 
+
  /*Buttons*/
 
 .bigbutton {
@@ -26,11 +27,13 @@
   width: 10em;
 }
 
+.stitch-btn { background-color: #2980b9; color: white;}
+
 
 .submitbtn { color: black;text-align: center; margin-top: 5em;}
 
-.stitch-btn { display: inline-block;}
 
+.create-btn { background-color: #e74c3c; color: white;}
 /*input fields */
 
 .inputform{font-size: 20px;text-align: center;margin-top: 5em;}
@@ -45,17 +48,57 @@
  .navbar1 { margin-bottom: 0;}
 
 /*Containers*/
-
 .video-header{
   width: 100%;
-  height: 70em;
+  height: 50em;
+}
+
+.video-header img { margin-left: 23em; margin-top: 14em; opacity: 0.6;}
+
+.hashcontainer{
+
+ float: left;
+ white-space: nowrap;
+ position: relative;
+ margin-top: 3em;
+ width: 5em;
+
+}
+
+.hashcontainer h3 {
+
+  margin-left: 0.5em;
+  margin-top: 1.2em;
+  color: #2980b9;
+
+}
+
+.hashcontainer button {
+
+  margin-left: 0.5em;
+  margin-top: 1em;
+
+}
+
+
+video#bgvid {
+position: absolute;
+top: 50%;
+left: 50%;
+min-width: 100%;
+width: auto;
+z-index: -100;
+-webkit-transform: translateX(-50%) translateY(-50%);
+transform: translateX(-50%) translateY(-50%);
+background: url(polina.jpg) no-repeat;
+background-size: cover;
 }
 
 .row-container{
  /*text-align: center;*/
  width: 0 auto;
- height: 37em;
- border: 2px solid black;
+ height: 25em;
+ border: 3px solid #2980b9;
  margin-top:2em;
  /*box-shadow:1em 1em 3em rgba(0,0,0,.3);*/
  overflow-x: scroll;
@@ -67,8 +110,8 @@
 .row-video{
 
  position: relative;
- width: 90%;
- margin-left: 5.5em;
+ width: 80%;
+ margin-left: 15.5em;
  margin-top: 5em;
  height: 15em;
  background-color: #444;
@@ -76,12 +119,15 @@
  overflow-x: scroll;
  overflow-y: hidden;
  white-space: nowrap;
-
-
 }
 
+#append-vid{ border: 3px solid black;
+             width: 256px;
+             height: 144px;
+           }
+
 #tagname { text-align: center;}
-.stitch-btn { margin-left: 47.5%; margin-top: 3%; }
+
 
 iframe { margin: 2em 0 0 2.5em;}
 
@@ -90,19 +136,6 @@ iframe { margin: 2em 0 0 2.5em;}
   height: 30px;
   width: 30px;
 
-}
-
-video#bgvid {
-position: fixed;
-top: 50%;
-left: 50%;
-min-width: 100%;
-width: auto;
-z-index: -100;
--webkit-transform: translateX(-50%) translateY(-50%);
-transform: translateX(-50%) translateY(-50%);
-background: url(polina.jpg) no-repeat;
-background-size: cover;
 }
 
 .sample{ float: left;}

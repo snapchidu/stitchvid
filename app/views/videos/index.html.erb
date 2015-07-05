@@ -5,21 +5,24 @@
     <source src="polina.webm" type="video/webm">
     <source src="polina.mp4" type="video/mp4">
   </video>
+  <img src="stitch.png"/>
 </div>
-
-
-
 
 <div class="main-container container-fluid">
    <div class="bigbutton">
-     <%=link_to 'Add Stitch', new_video_upload_path, class: "btn-big btn-info" %>
+     <%=link_to 'Create Stitch', new_video_upload_path, class: "btn-big create-btn" %>
    </div>
 
    <% @tags.all.each do |tag| %>
 
      <section class="row-container">
 
-         <h3 id="tagname"><%=tag.name.upcase%></h3>
+        <div class="hashcontainer">
+           <h3 id="tagname"><%=tag.name.upcase%></h3>
+           </br>
+           </br>
+           <button class='btn stitch-btn' id='<%= tag.name -%>-stitch' data-playlist="<%=tag.videos.pluck(:uid).join(',') %>">STITCH <%=tag.name.upcase %></button>
+        </div>
          <div class="stitch"> <!-- this div is only loaded on mobile -->
            <iframe type="text/html" width="250" height="250"
               src="https://www.youtube.com/embed/<%=tag.videos.first.uid%>?controls=0&modestbranding=1&autohide=1&playlist=<%= tag.videos.offset(1).pluck(:uid).join(',') -%>"
@@ -35,7 +38,6 @@
          <% end %>
        </div>
 
-       <button class='btn btn-info stitch-btn' id='<%= tag.name -%>-stitch' data-playlist="<%=tag.videos.pluck(:uid).join(',') %>">STITCH <%=tag.name.upcase %></button>
        <button class="btn btn-info add">+</button>
 
      </section>
