@@ -8,52 +8,61 @@
   <img src="stitch.png"/>
 </div>
 
-<div class="main-container container-fluid">
-   <div class="bigbutton">
-     <%=link_to 'Create Stitch', new_video_upload_path, class: "btn-big create-btn" %>
-   </div>
 
-   <% @tags.all.each do |tag| %>
+  <div class="mobile-header">
+    <h3>STITCH</h3>
+  </div>
 
-     <section class="row-container">
+  <div class="stitch-container">
 
-        <div class="hashcontainer">
-           <h3 id="tagname"><%=tag.name.upcase%></h3>
-           </br>
-           </br>
-           <button class='btn stitch-btn' id='<%= tag.name -%>-stitch' data-playlist="<%=tag.videos.pluck(:uid).join(',') %>">STITCH <%=tag.name.upcase %></button>
-        </div>
-         <div class="stitch"> <!-- this div is only loaded on mobile -->
-           <iframe type="text/html" width="250" height="250"
-              src="https://www.youtube.com/embed/<%=tag.videos.first.uid%>?controls=0&modestbranding=1&autohide=1&playlist=<%= tag.videos.offset(1).pluck(:uid).join(',') -%>"
-              frameborder="0" allowfullscreen>
-            </iframe>
+     <div class="bigbutton">
+       <%=link_to 'Create Stitch', new_video_upload_path, class: "btn-big create-btn" %>
+     </div>
+
+     <% @tags.all.each do |tag| %>
+
+      <section class="row-container" id='row-container<%= @tags.index(tag) %>'>
+
+          <div class="hashcontainer">
+             <h3 id="tagname"><%=tag.name.upcase%></h3>
+             </br>
+             </br>
+             <button class='btn stitch-btn' id='<%= tag.name -%>-stitch' data-playlist="<%=tag.videos.pluck(:uid).join(',') %>">STITCH <%=tag.name.upcase %></button>
+          </div>
+           <div class="stitch"> <!-- this div is only loaded on mobile -->
+            <h3 id="tagname-mobile"><%=tag.name.upcase%></h3>
+             <iframe type="text/html" width="360" height="250"
+                src="https://www.youtube.com/embed/<%=tag.videos.first.uid%>?controls=0&modestbranding=1&autohide=1&playlist=<%= tag.videos.offset(1).pluck(:uid).join(',') -%>"
+                frameborder="0" allowfullscreen>
+              </iframe>
+           </div>
+
+         <div class="row-video">
+           <% tag.videos.all.each do |video| %>
+
+               <iframe frameborder="0" width="256" height="144" id="ytplayer" name="ytplayer" src= "https://www.youtube.com/embed/<%=video.uid%>?controls=0&modestbranding=1&autohide=1"></iframe>
+
+           <% end %>
          </div>
 
-       <div class="row-video">
-         <% tag.videos.all.each do |video| %>
+         <!--<button class="btn add">Add</button>-->
 
-             <iframe frameborder="0" width="256" height="144" id="ytplayer" name="ytplayer" src= "https://www.youtube.com/embed/<%=video.uid%>?controls=0&modestbranding=1&autohide=1"></iframe>
+       </section>
 
-         <% end %>
-       </div>
+     <% end %>
 
-       <button class="btn btn-info add">+</button>
+     <div class="sample">
+     </div>
+  </div>
 
-     </section>
-
-   <% end %>
-
- </div>
-
-</div>
 
 <script type="text/javascript">
 
-  $(document).ready( function() {
+  $(document).ready(function() {
 
     $('.stitch').hide();
     $('.add').hide();
+    $('.mobile-header').hide();
 
     mobileStyling();
 
@@ -66,14 +75,25 @@
         if ($('.sample').css('float') == 'right'){
             $('.stitch').show();
             $('.add').show();
+            $('.mobile-header').show();
             $('.row-video').hide();
+            $('.video-header').hide();
+            $('.hashcontainer').remove();
+            changeRowContainerBg();
             } else {
                 $('.stitch').hide();
                 $('.add').hide();
                 $('.row-video').show();
             }
-      }
+          }
 
-  });;
+      function changeRowContainerBg(){
+        colors = ['#e67e22', '#2ecc71', '#3498db', '#e74c3c'];
+        for(var i = 0; i < <%= @tags.length %>; i++){
+          $('#row-container'+i).css('background-color', colors[i]);
+          }
+        }
+
+    });
 
 </script>

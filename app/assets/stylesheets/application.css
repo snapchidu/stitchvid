@@ -48,6 +48,8 @@
  .navbar1 { margin-bottom: 0;}
 
 /*Containers*/
+
+.stitch-container { margin: 0 1em 0 1em;}
 .video-header{
   width: 100%;
   height: 50em;
@@ -140,16 +142,24 @@ iframe { margin: 2em 0 0 2.5em;}
 
 .sample{ float: left;}
 
-@media (max-width: 400px) {
+@media (max-width: 360px) {
+
+  iframe{ margin: 0;}
+
+  .mobile-header { text-align: center; background-color: #e74c3c; width: 100%; height: 20em; margin-top: 0;}
+
+  .mobile-header h3 { padding-top: 3em; color: white; font-size: 40px;}
 
   .sample{float: right;}
 
-  #tagname { text-align: center;}
+  .create-btn{ margin-top: 2em; background-color: white; color: #e74c3c;}
 
-  .row-container { border: none;}
+  .stitch-container { margin: 0;}
 
-  .stitch-btn { display: none !important;}
+  #tagname-mobile { text-align: center; color: white;}
 
-  .add { margin-top: 2.5%; margin-left: 47%;}
+  .row-container { border: none; margin-top: 0;}
+
+  .add { margin-top: 2.5%; margin-left: 45%; padding-bottom: 3px; color: white;}
 
 }
