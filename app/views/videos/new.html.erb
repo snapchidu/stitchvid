@@ -11,33 +11,23 @@
 
 
 <div class="container">
-  <div class="inputform">
 
-    <h1>Add Story</h1>
-
-
-
-    <div class="formcontainer">
+    <h1>Add Stitch</h1>
 
       <%= form_for @video do |f| %>
 
         <div class="form-group">
           <%= f.label :link %>
-          <%= f.text_field :link %>
+          <%= f.text_field :link, class: 'form-control' %>
         </div>
 
         <div class='form-group'>
           <%= f.label :all_tags %>
-          <%= f.text_field :all_tags %>
+          <%= f.text_field :all_tags, class: 'form-control' %>
         </div>
 
       <%= f.submit 'Upload', class: 'btn btn-primary' %>
 
+      <% end %>
+
   </div>
-
-  <% end %>
-
-    </div>
-  </div>
-
-</div>
