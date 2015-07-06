@@ -78,13 +78,52 @@ background-size: cover;
 
   text-align: center;
   font-size: 5em;
-  background: red;
+  background: #e67e22;
 }
 
 a.create-btn {
 
   color: white;
   text-decoration: none !important;
+}
+
+#tagname { text-align: center;}
+
+.scrollbox {
+
+margin-top: 2em;
+margin-bottom: 2em;
+overflow-x: scroll;
+overflow-y: hidden;
+white-space: nowrap;
+}
+
+.icon1 {
+
+font-size: 5em;
+text-decoration: none !important;
+color: white;
+}
+
+.stitchtext {
+
+  color: white;
+  font-size: 2em;
+}
+
+.addtext {
+
+  color: white;
+  font-size: 1.5em;
+}
+.centerstitch{
+margin-top: 7em;
+}
+
+.centeradd {
+
+margin-top: 7em;
+
 }
 
 
@@ -158,8 +197,6 @@ a.create-btn {
              width: 256px;
              height: 144px;
            }*/
-
-#tagname { text-align: center;}
 
 
 /*iframe { margin: 2em 0 0 2.5em;}*/

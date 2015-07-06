@@ -24,25 +24,31 @@
 
      <% @tags.all.each do |tag| %>
      <div class="row" id="row-color<%= @tags.index(tag) %>">
-
-
-             <h3 id="tagname"><%=tag.name.upcase%></h3>
-
-             <button class='btn stitch-btn' id='<%= tag.name -%>-stitch' data-playlist="<%=tag.videos.pluck(:uid).join(',') %>">STITCH <%=tag.name.upcase %></button>
-
-
-             <iframe type="text/html" width="360" height="250"
+        <h3 id="tagname"><%=tag.name.upcase%></h3>
+        <div class="col-md-1 text-center centerstitch">
+             <a class='glyphicon glyphicon-play-circle icon1' id='<%= tag.name -%>-stitch' data-playlist="<%=tag.videos.pluck(:uid).join(',') %>"></a>
+             <br>
+             <span class="stitchtext">STITCH</span>
+        </div>
+             <iframe class="stitch" type="text/html" width="360" height="250"
                 src="https://www.youtube.com/embed/<%=tag.videos.first.uid%>?controls=0&modestbranding=1&autohide=1&playlist=<%= tag.videos.offset(1).pluck(:uid).join(',') -%>"
                 frameborder="0" allowfullscreen>
               </iframe>
 
+        <div class="col-md-10">
+          <section class="scrollbox">
+         <% tag.videos.all.each do |video| %>
+             <iframe frameborder="0" width="480" height="250" id="ytplayer" name="ytplayer" src= "https://www.youtube.com/embed/<%=video.uid%>?controls=0&modestbranding=1&autohide=1"></iframe>
+         <% end %>
+         </section>
+        </div>
 
-           <% tag.videos.all.each do |video| %>
+        <div class="col-md-1 centeradd text-center">
 
-               <iframe frameborder="0" width="256" height="144" id="ytplayer" name="ytplayer" src= "https://www.youtube.com/embed/<%=video.uid%>?controls=0&modestbranding=1&autohide=1"></iframe>
-
-           <% end %>
-
+          <%=link_to "", new_video_upload_path(tag: tag.name), class: "glyphicon glyphicon-plus icon1", id: "#{tag.name.upcase}-ADDTO"%>
+          <br>
+             <span class="addtext">ADD VIDEO</span>
+        </div>
     </div>
      <% end %>
 
@@ -63,7 +69,7 @@
 
       $(window).resize(mobileStyling);
 
-      $('.stitch-btn').YouTubePlaylistModal({ autoplay: 1, width:640, height:480 });
+      $('.stitch-btn').YouTubePlaylistModal({ autoplay:1, width:640, height:480 });
 
       function mobileStyling() {
 
