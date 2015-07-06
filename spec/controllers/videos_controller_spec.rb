@@ -102,6 +102,7 @@ feature 'Video uploads and doesnt process' do
       "privacyStatus"=>"public", "license"=>"youtube", "embeddable"=>true,
       "publicStatsViewable"=>true}}]})
     add_video_link()
+    Video.first.update_columns(processed: false)
     visit '/'
     expect(page.html).not_to include('lmyZMtPVodo')
   end
