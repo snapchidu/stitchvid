@@ -8,7 +8,7 @@ class VideosController < ApplicationController
       rescue
       end
     end
-    @tags = Tag.top(5)
+    @tags = Tag.top(8)
   end
 
   def new
