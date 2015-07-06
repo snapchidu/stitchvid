@@ -33,6 +33,7 @@
                </br>
                </br>
                <button class='btn stitch-btn' id='<%= tag.name -%>-stitch' data-playlist="<%=tag.videos.published.pluck(:uid).join(',') %>">STITCH <%=tag.name.upcase %></button>
+               <%=link_to "ADD TO #{tag.name.upcase}", new_video_upload_path(tag: tag.name), class: 'btn addto-btn', id: "#{tag.name.upcase}-ADDTO"%>
             </div>
              <div class="stitch"> <!-- this div is only loaded on mobile -->
               <h3 id="tagname-mobile"><%=tag.name.upcase%></h3>
