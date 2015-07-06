@@ -92,7 +92,7 @@ feature 'Videos upload and publish' do
     click_button 'Upload'
     visit '/'
     expect(page).to have_css('.row-video', :count => 1)
-    within('row-video#test') do
+    within('div#test.row-video') do
       expect(page).to have_css('iframe', :count => 2)
     end
   end

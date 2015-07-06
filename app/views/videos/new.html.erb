@@ -23,7 +23,11 @@
 
         <div class='form-group'>
           <%= f.label :tag %>
-          <%= f.text_field :tag, class: 'form-control' %>
+          <% if params[:tag] == nil %>
+            <%= f.text_field :tag, class: 'form-control' %>
+          <% else %>
+            <%= f.text_field :tag, class: 'form-control', value: params[:tag] %>
+          <% end %>
         </div>
 
       <%= f.submit 'Upload', class: 'btn btn-primary' %>

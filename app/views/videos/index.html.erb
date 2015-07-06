@@ -43,7 +43,7 @@
                 </iframe>
              </div>
 
-           <div class="row-video">
+           <div class="row-video" id="<%= tag.name %>">
              <% tag.videos.published.all.each do |video| %>
 
                  <iframe frameborder="0" width="256" height="144" id="ytplayer" name="ytplayer" src= "https://www.youtube.com/embed/<%=video.uid%>?controls=0&modestbranding=1&autohide=1"></iframe>

@@ -20,7 +20,11 @@
 
          <div class="form-group">
           <%= f.label :tag %>
-          <%= f.text_area :tag, class: 'form-control', cols: 3 %>
+          <% if params[:tag] == nil %>
+            <%= f.text_area :tag, class: 'form-control', cols: 3 %>
+          <% else %>
+            <%= f.text_area :tag, class: 'form-control', cols: 3, value: params[:tag] %>
+          <% end %>
         </div>
         <%= f.submit 'Upload', class: 'btn btn-primary' %>
       <% end %>
@@ -28,7 +32,11 @@
       </br>
       </br>
 
-      <%= link_to 'or add a link to your stitch', new_video_path %>
+      <% if params[:tag] == nil %>
+        <%= link_to 'or add a link to your stitch', new_video_path %>
+      <% else %>
+        <%= link_to 'or add a link to your stitch', new_video_path(tag: params[:tag]) %>
+      <% end %>
   </div>
 <% else %>
 
