@@ -79,6 +79,24 @@ feature 'Videos upload and publish' do
     expect('test2').to appear_before('test1')
   end
 
+  scenario 'when adding a video to an existing tag it uses the tag' do
+    add_video_link()
+    visit '/'
+    mock_auth_hash
+    click_link 'Create Stitch'
+    click_link 'Create Stitch'
+    visit '/'
+    expect{click_link 'ADD TO TEST'}.to_not raise_error
+    click_link 'or add a link to your stitch'
+    fill_in("Link", with: 'https://www.youtube.com/watch?v=CAA_zE5a3JQ')
+    click_button 'Upload'
+    visit '/'
+    expect(page).to have_css('.row-video', :count => 1)
+    within('div#test.row-video') do
+      expect(page).to have_css('iframe', :count => 2)
+    end
+  end
+
 end
 
 feature 'Video uploads and doesnt process' do
