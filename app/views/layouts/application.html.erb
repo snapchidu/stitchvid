@@ -16,12 +16,6 @@
   </head>
 
     <body>
-    </div class="messages">
-      <%= alert %>
-      <%flash.each do |value| %>
-        <%=value%>
-      <%end%>
-    </div>
       <%= notice %>
       <%= render 'shared/navbar' %>
       <%= yield %>
@@ -29,3 +23,4 @@
     </body>
 
 </html>
+
