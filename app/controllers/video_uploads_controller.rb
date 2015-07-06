@@ -8,7 +8,7 @@ class VideoUploadsController < ApplicationController
                                   description: params[:video_upload][:description],
                                   file: params[:video_upload][:file].try(:tempfile).try(:to_path))
 
-    @tag = params[:video_upload][:all_tags]
+    @tag = params[:video_upload][:tag]
     puts @tag
 
     if @video_upload.save
@@ -17,7 +17,7 @@ class VideoUploadsController < ApplicationController
       if uploaded_video.failed?
         flash[:error] = 'There was an error while uploading your video...'
       else
-        Video.create({link: "https://www.youtube.com/watch?v=#{uploaded_video.id}", all_tags: @tag})
+        Video.create({link: "https://www.youtube.com/watch?v=#{uploaded_video.id}", tag: @tag})
         flash[:success] = 'Your video has been uploaded!'
       end
 
