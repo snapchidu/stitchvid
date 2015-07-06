@@ -13,13 +13,12 @@ feature 'Videos upload and publish' do
 
   def add_video_link(link="https://www.youtube.com/watch?v=lmyZMtPVodo",tags="test")
     visit '/'
-    click_link 'Create Stitch'
     mock_auth_hash
-    click_link 'Log In'
+    click_link 'Create Stitch'
     click_link 'Create Stitch'
     click_link 'or add a link to your stitch'
     fill_in("Link", with: link)
-    fill_in("All tags", with: tags)
+    fill_in("Tag", with: tags)
     click_button 'Upload'
     click_link 'Log Out'
   end
@@ -86,13 +85,12 @@ feature 'Video uploads and doesnt process' do
 
   def add_video_link(link="https://www.youtube.com/watch?v=lmyZMtPVodo",tags="test")
     visit '/'
-    click_link 'Create Stitch'
     mock_auth_hash
-    click_link 'Log In'
+    click_link 'Create Stitch'
     click_link 'Create Stitch'
     click_link 'or add a link to your stitch'
     fill_in("Link", with: link)
-    fill_in("All tags", with: tags)
+    fill_in("Tag", with: tags)
     click_button 'Upload'
     click_link 'Log Out'
   end
