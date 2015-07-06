@@ -43,6 +43,7 @@ group :production do
 end
 
 group :development, :test do
+  gem 'launchy'
   gem 'coveralls', require: false
   gem 'orderly'
 
