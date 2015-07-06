@@ -77,9 +77,9 @@ feature 'Videos upload and publish' do
     visit '/'
     expect('test3').to appear_before('test2')
     expect('test2').to appear_before('test1')
+    end
   end
 
-end
 
 feature 'Video uploads and doesnt process' do
 

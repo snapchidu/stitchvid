@@ -28,6 +28,7 @@ gem 'rails-observers'
 gem 'omniauth-google-oauth2'
 gem 'active_type', '~> 0.3.1'
 gem 'httparty'
+gem 'video_info', github: 'thibaudgg/video_info'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
