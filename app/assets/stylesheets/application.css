@@ -30,15 +30,8 @@
 
  /*Buttons*/
 
-.bigbutton {
-  text-align: center;
-}
 
-.btn-big {
 
-  font-size: 50px;
-  width: 10em;
-}
 
 .stitch-btn { background-color: #e74c3c; color: white;}
 
@@ -46,7 +39,6 @@
 .submitbtn { color: black;text-align: center; margin-top: 5em;}
 
 
-.create-btn { background-color: #e74c3c; color: white;}
 /*input fields */
 
 .inputform{font-size: 20px;text-align: center;margin-top: 5em;}
@@ -67,46 +59,18 @@
 
 /*Containers*/
 
-.stitch-container { margin: 0 1em 0 1em;}
-.video-header{
-  width: 100%;
-  height: 50em;
-}
+.video-header {
 
-.video-header img { margin-left: 23em; margin-top: 14em; opacity: 0.6;}
-
-.hashcontainer{
-
- float: left;
- white-space: nowrap;
- position: relative;
- margin-top: 3em;
- width: 5em;
+  position: relative;
+  overflow: hidden;
 
 }
-
-.hashcontainer h3 {
-
-  margin-left: 0.5em;
-  margin-top: 1.2em;
-  color: #e74c3c;
-
-}
-
-.hashcontainer button {
-
-  margin-left: 0.5em;
-  margin-top: 1em;
-
-}
-
 
 video#bgvid {
 position: absolute;
 top: 50%;
 left: 50%;
 min-width: 100%;
-width: auto;
 z-index: -100;
 -webkit-transform: translateX(-50%) translateY(-50%);
 transform: translateX(-50%) translateY(-50%);
@@ -114,20 +78,118 @@ background: url(polina.jpg) no-repeat;
 background-size: cover;
 }
 
-.row-container{
- /*text-align: center;*/
+.logo{
+
+  margin: 10% 0 10% 0;
+}
+
+.add-stitch{
+
+  text-align: center;
+  font-size: 5em;
+  background: #e67e22;
+}
+
+a.create-btn {
+
+  color: white;
+  text-decoration: none !important;
+}
+
+#tagname { text-align: center;}
+
+.scrollbox {
+
+margin-top: 2em;
+margin-bottom: 2em;
+overflow-x: scroll;
+overflow-y: hidden;
+white-space: nowrap;
+}
+
+.icon1 {
+
+font-size: 5em;
+text-decoration: none !important;
+color: white;
+}
+
+.stitchtext {
+
+  color: white;
+  font-size: 2em;
+}
+
+.addtext {
+
+  color: white;
+  font-size: 1.5em;
+}
+.centerstitch{
+margin-top: 7em;
+}
+
+.centeradd {
+
+margin-top: 7em;
+
+}
+
+
+
+/*.video-header img {
+    min-height: 250px;
+    padding-bottom: 50px;
+    margin-top: 50px;
+    -moz-box-shadow:  0 2px 5px 0 #333;
+    -webkit-box-shadow: 0 2px 5px 0 #333;
+    box-shadow: 0 2px 5px 0 #333;
+    position: absolute;
+    overflow: hidden;
+
+}*/
+
+/*.hashcontainer{
+
+ float: left;
+ white-space: nowrap;
+ position: relative;
+ margin-top: 3em;
+ width: 5em;
+
+}*/
+
+/*.hashcontainer h3 {
+
+  margin-left: 0.5em;
+  margin-top: 1.2em;
+  color: #e74c3c;
+
+}*/
+
+/*.hashcontainer button {
+
+  margin-left: 0.5em;
+  margin-top: 1em;
+
+}*/
+
+
+
+
+/*.row-container{
+
  width: 0 auto;
  height: 25em;
  border: 3px solid #e74c3c;
  margin-top:2em;
- /*box-shadow:1em 1em 3em rgba(0,0,0,.3);*/
  overflow-x: scroll;
  overflow-y: hidden;
  white-space: nowrap;
 
-}
+}*/
 
-.row-video{
+/*.row-video{
 
  position: relative;
  width: 80%;
@@ -135,32 +197,29 @@ background-size: cover;
  margin-top: 5em;
  height: 15em;
  background-color: #444;
- /*box-shadow:1em 1em 3em rgba(0,0,0,.3);*/
  overflow-x: scroll;
  overflow-y: hidden;
  white-space: nowrap;
 }
-
-#append-vid{ border: 3px solid black;
+*/
+/*#append-vid{ border: 3px solid black;
              width: 256px;
              height: 144px;
-           }
-
-#tagname { text-align: center;}
+           }*/
 
 
-iframe { margin: 2em 0 0 2.5em;}
+/*iframe { margin: 2em 0 0 2.5em;}*/
 
-#stitch {
+/*#stitch {
 
   height: 30px;
   width: 30px;
 
-}
+}*/
 
 .sample{ float: left;}
 
-@media (max-width: 360px) {
+@media (max-width: 400px) {
 
   iframe{ margin: 0;}
 
