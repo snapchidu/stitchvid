@@ -24,34 +24,36 @@
 
 
      <% @tags.all.each do |tag| %>
+      <% if tag.videos.published.count > 0 %>
 
-      <section class="row-container" id='row-container<%= @tags.index(tag) %>'>
+        <section class="row-container" id='row-container<%= @tags.index(tag) %>'>
 
-          <div class="hashcontainer">
-             <h3 id="tagname"><%=tag.name.upcase%></h3>
-             </br>
-             </br>
-             <button class='btn stitch-btn' id='<%= tag.name -%>-stitch' data-playlist="<%=tag.videos.pluck(:uid).join(',') %>">STITCH <%=tag.name.upcase %></button>
-          </div>
-           <div class="stitch"> <!-- this div is only loaded on mobile -->
-            <h3 id="tagname-mobile"><%=tag.name.upcase%></h3>
-             <iframe type="text/html" width="360" height="250"
-                src="https://www.youtube.com/embed/<%=tag.videos.first.uid%>?controls=0&modestbranding=1&autohide=1&playlist=<%= tag.videos.offset(1).pluck(:uid).join(',') -%>"
-                frameborder="0" allowfullscreen>
-              </iframe>
+            <div class="hashcontainer">
+               <h3 id="tagname"><%=tag.name.upcase%></h3>
+               </br>
+               </br>
+               <button class='btn stitch-btn' id='<%= tag.name -%>-stitch' data-playlist="<%=tag.videos.published.pluck(:uid).join(',') %>">STITCH <%=tag.name.upcase %></button>
+            </div>
+             <div class="stitch"> <!-- this div is only loaded on mobile -->
+              <h3 id="tagname-mobile"><%=tag.name.upcase%></h3>
+               <iframe type="text/html" width="360" height="250"
+                  src="https://www.youtube.com/embed/<%=tag.videos.first.uid%>?controls=0&modestbranding=1&autohide=1&playlist=<%= tag.videos.published.offset(1).pluck(:uid).join(',') -%>"
+                  frameborder="0" allowfullscreen>
+                </iframe>
+             </div>
+
+           <div class="row-video">
+             <% tag.videos.published.all.each do |video| %>
+
+                 <iframe frameborder="0" width="256" height="144" id="ytplayer" name="ytplayer" src= "https://www.youtube.com/embed/<%=video.uid%>?controls=0&modestbranding=1&autohide=1"></iframe>
+
+             <% end %>
            </div>
 
-         <div class="row-video">
-           <% tag.videos.all.each do |video| %>
+           <!--<button class="btn add">Add</button>-->
 
-               <iframe frameborder="0" width="256" height="144" id="ytplayer" name="ytplayer" src= "https://www.youtube.com/embed/<%=video.uid%>?controls=0&modestbranding=1&autohide=1"></iframe>
-
-           <% end %>
-         </div>
-
-         <!--<button class="btn add">Add</button>-->
-
-       </section>
+         </section>
+       <% end %>
 
      <% end %>
 

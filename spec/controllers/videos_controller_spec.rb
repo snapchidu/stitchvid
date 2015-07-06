@@ -2,17 +2,23 @@ require 'rails_helper'
 
 require 'omniauth_test'
 
-feature 'Videos' do
+feature 'Videos upload and publish' do
+
+  before(:each) do
+    # Stub out 'video processed' check every time
+    allow(HTTParty).to receive(:get).and_return({"items"=>[{"status"=>{"uploadStatus"=>"processed",
+      "privacyStatus"=>"public", "license"=>"youtube", "embeddable"=>true,
+      "publicStatsViewable"=>true}}]})
+  end
 
   def add_video_link(link="https://www.youtube.com/watch?v=lmyZMtPVodo",tags="test")
     visit '/'
-    click_link 'Create Stitch'
     mock_auth_hash
-    click_link 'Log In'
+    click_link 'Create Stitch'
     click_link 'Create Stitch'
     click_link 'or add a link to your stitch'
     fill_in("Link", with: link)
-    fill_in("All tags", with: tags)
+    fill_in("Tag", with: tags)
     click_button 'Upload'
     click_link 'Log Out'
   end
@@ -24,9 +30,6 @@ feature 'Videos' do
 
   # THIS IS A UNIT TEST, ISN'T IT?
   scenario 'shows videos on homepage' do
-    # t = Tag.create(name: "test")
-    # t.videos.create(link: "https://www.youtube.com/watch?v=lmyZMtPVodo")
-    # visit('/')
     add_video_link()
     visit '/'
     expect(page).to have_css('iframe')
@@ -34,29 +37,18 @@ feature 'Videos' do
 
   # FEATURE TEST?!
   scenario 'uploads videos' do
-    # visit '/'
-    # click_link 'Add Story'
-    # fill_in("Link", with: "https://www.youtube.com/watch?v=lmyZMtPVodo")
-    # fill_in("All tags", with: "Test")
-    # click_button 'Create Video'
     add_video_link()
     expect(current_path).to eq('/')
     expect(page).to have_css('iframe')
   end
 
   # FEATURE TEST
-    scenario 'Stitches videos together' do
-      # t = Tag.create(name: "test")
-      # t.videos.create(link: "https://www.youtube.com/watch?v=9LRyNC-n98k")
-      # t.videos.create(link: "https://www.youtube.com/watch?v=qXsT2KtYZOM")
-      # visit '/'
-      add_video_link()
-      add_video_link('https://www.youtube.com/watch?v=qXsT2KtYZOM')
-      # click_link 'Stitch test'
-      page.find("#test-stitch").click
-      # expect(page).to have_css('iframe')
-      expect(page.html).to include('src="https://www.youtube.com/embed/lmyZMtPVodo?controls=0&modestbranding=1&autohide=1&playlist=qXsT2KtYZOM"')
-    end
+  scenario 'stitches videos together' do
+    add_video_link()
+    add_video_link('https://www.youtube.com/watch?v=qXsT2KtYZOM')
+    page.find("#test-stitch").click
+    expect(page.html).to include('src="https://www.youtube.com/embed/lmyZMtPVodo?controls=0&modestbranding=1&autohide=1&playlist=qXsT2KtYZOM"')
+  end
 
   scenario 'shows tag name with associated video' do
       add_video_link()
@@ -68,18 +60,12 @@ feature 'Videos' do
   end
 
   scenario 'shows a tagged video in the correct tag row' do
-      add_video_link()
-      visit '/'
-      expect(page).to have_css('section.row-container div.row-video iframe#ytplayer')
-      # within('section.row-container div.row-video') do
-      expect(page).to have_css('iframe#ytplayer', :count => 1)
-      expect(page.html).to include('lmyZMtPVodo')
-      # end
+    add_video_link()
+    visit '/'
+    expect(page).to have_css('section.row-container div.row-video iframe#ytplayer')
+    expect(page).to have_css('iframe#ytplayer', :count => 1)
+    expect(page.html).to include('lmyZMtPVodo')
   end
-
-  # # xscenario 'videos do not sit outside their tags row' do
-  # #
-  # # end
 
   scenario 'shows tags by popularity: tag with three videos, then two, then one' do
     add_video_link('https://www.youtube.com/watch?v=riZck9O-kBU','test1')
@@ -93,4 +79,29 @@ feature 'Videos' do
     expect('test2').to appear_before('test1')
   end
 
+end
+
+feature 'Video uploads and doesnt process' do
+
+  def add_video_link(link="https://www.youtube.com/watch?v=lmyZMtPVodo",tags="test")
+    visit '/'
+    mock_auth_hash
+    click_link 'Create Stitch'
+    click_link 'Create Stitch'
+    click_link 'or add a link to your stitch'
+    fill_in("Link", with: link)
+    fill_in("Tag", with: tags)
+    click_button 'Upload'
+    click_link 'Log Out'
+  end
+
+  scenario 'does not show an unprocessed video' do
+    expect(HTTParty).to receive(:get).at_least(1).times.and_return({"items"=>[{"status"=>{"uploadStatus"=>"uploaded",
+      "privacyStatus"=>"public", "license"=>"youtube", "embeddable"=>true,
+      "publicStatsViewable"=>true}}]})
+    add_video_link()
+    Video.first.update_columns(processed: false)
+    visit '/'
+    expect(page.html).not_to include('lmyZMtPVodo')
+  end
 end
