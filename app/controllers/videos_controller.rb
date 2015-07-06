@@ -16,7 +16,7 @@ class VideosController < ApplicationController
   end
 
   def create
-    @video =  Video.create(params.require(:video).permit(:link, :all_tags))
+    @video =  Video.create(params.require(:video).permit(:link, :tag))
     @video.processed = true
     if @video.save
       redirect_to '/'

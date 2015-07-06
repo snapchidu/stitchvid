@@ -14,10 +14,14 @@
   </div>
 
   <div class="stitch-container">
-
      <div class="bigbutton">
-       <%=link_to 'Create Stitch', new_video_upload_path, class: "btn-big create-btn" %>
+      <% if current_user%>
+        <%=link_to 'Create Stitch', new_video_upload_path, class: "btn-big create-btn" %>
+      <%else%>
+       <%=link_to 'Create Stitch', '/auth/google_oauth2', class: "btn-big create-btn" %>
+     <%end%>
      </div>
+
 
      <% @tags.all.each do |tag| %>
       <% if tag.videos.published.count > 0 %>
