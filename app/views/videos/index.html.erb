@@ -91,10 +91,12 @@
       function mobileStyling() {
 
           if ($('.sample').css('float') == 'right'){
-              $('.logo').remove();
+              $('.logo').hide();
               $('.mobile-header').show();
               $('.icon1').YouTubePlaylistModal({ autoplay:1, width:320, height:240 });
               } else {
+                $('.logo').show();
+                $('.mobile-header').hide();
               }
             }
 
