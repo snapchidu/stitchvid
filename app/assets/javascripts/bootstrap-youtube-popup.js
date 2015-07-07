@@ -379,7 +379,6 @@
     showinfo: 0,
     theme: 'dark',
     icons: {
-<<<<<<< HEAD
          'close': 'glyphicon glyphicon-remove',
          'first': 'glyphicon glyphicon-fast-backward',
          'prev': 'glyphicon glyphicon-step-backward',
@@ -392,7 +391,6 @@
          'loop': 'glyphicon glyphicon-repeat',
          'mute': 'glyphicon glyphicon-volume-off',
          'list': 'glyphicon glyphicon-list'
-=======
       // 'close': 'glyphicon glyphicon-remove',
       // 'first': 'glyphicon glyphicon-fast-backward',
       // 'prev': 'glyphicon glyphicon-step-backward',
@@ -405,7 +403,6 @@
       // 'loop': 'glyphicon glyphicon-repeat',
       // 'mute': 'glyphicon glyphicon-volume-off',
       // 'list': 'glyphicon glyphicon-list'
->>>>>>> 26c85cd69a076fbe8329a40c307f12c880745d20
     },
        translations: {
          'close': 'Close',
