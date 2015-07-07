@@ -1,6 +1,11 @@
 class VideoUploadsController < ApplicationController
   def new
     @video_upload = VideoUpload.new
+    if current_user
+      render :new
+    else
+      redirect_to '/auth/google_oauth2'
+    end
   end
 
   def create

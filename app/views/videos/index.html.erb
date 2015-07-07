@@ -1,18 +1,14 @@
   <div class="row video-header">
-      <video autoplay loop poster="polina.jpg" id="bgvid">
-        <source src="stitchhd.webm" type="video/webm">
+      <video autoplay loop id="bgvid">
+        <source src="stitch.webm" type="video/webm">
         <source src="stitchhd.mp4" type="video/mp4">
       </video>
       <img class="center-block logo" src="stitch.png"/>
   </div>
 
-
-
-    <div class="mobile-header">
-      <h3>STITCH</h3>
-    </div>
-
-
+  <div class="row mobile-header">
+    <h3> STITCH </h3>
+  </div>
 
   <div class="row add-stitch ">
         <% if current_user%>
@@ -37,7 +33,6 @@
            </div>
          </div>
        <%end%>
-
   </div>
 
 
@@ -45,7 +40,7 @@
      <% @tags.all.each do |tag| %>
       <% if tag.videos.published.count > 0 %>
          <div class="row" id="row-color<%= @tags.index(tag) %>">
-            <h3 id="tagname"><%=tag.name.upcase%></h3>
+            <h2 id="tagname"><%=tag.name.upcase%></h2>
             <div class="col-md-1 text-center centerstitch">
                  <a class='glyphicon glyphicon-play-circle icon1' id='<%= tag.name -%>-stitch' data-playlist="<%=tag.videos.published.pluck(:uid).join(',') %>"></a>
                  <br>
@@ -64,7 +59,11 @@
             </div>
 
             <div class="col-md-1 centeradd text-center">
-              <%=link_to "", new_video_upload_path(tag: tag.name), class: "glyphicon glyphicon-plus icon1", id: "#{tag.name.upcase}-ADDTO"%>
+              <% if current_user%>
+                <%=link_to "", new_video_upload_path(tag: tag.name), class: "glyphicon glyphicon-plus icon1", id: "#{tag.name.upcase}-ADDTO"%>
+              <% else %>
+                <%=link_to "", '/auth/google_oauth2', class: "glyphicon glyphicon-plus icon1", id: "#{tag.name.upcase}-ADDTO"%>
+              <% end %>
             <br>
              <span class="addtext">ADD VIDEO</span>
             </div>
@@ -80,7 +79,6 @@
     $(document).ready(function() {
 
       $('.stitch').hide();
-      $('.add').hide();
       $('.mobile-header').hide();
 
       changeTagContainerBg();
@@ -93,32 +91,17 @@
       function mobileStyling() {
 
           if ($('.sample').css('float') == 'right'){
-              $('.stitch').show();
-              $('.add').show();
+              $('.logo').remove();
               $('.mobile-header').show();
-              $('.row-video').hide();
-              $('.video-header').hide();
-              $('.hashcontainer').remove();
-              changeRowContainerBg();
+              $('.icon1').YouTubePlaylistModal({ autoplay:1, width:320, height:240 });
               } else {
-                  $('.stitch').hide();
-                  $('.add').hide();
-                  $('.row-video').show();
               }
             }
 
           function changeTagContainerBg(){
-          colors = ['#e67e22', '#2ecc71', '#3498db', '#e74c3c','#e67e22', '#2ecc71', '#3498db', '#e74c3c'];
+          colors = ['#CB99C9', '#FDFD96', '#779ECB', '#B19CD9','#FF7878', '#2ecc71', '#3498db', '#55aadd'];
           for(var i = 0; i < <%= @tags.length %>; i++){
             $('#row-color'+i).css('background-color', colors[i]);
-            }
-          }
-
-
-        function changeRowContainerBg(){
-          colors = ['#e67e22', '#2ecc71', '#3498db', '#e74c3c'];
-          for(var i = 0; i < <%= @tags.length %>; i++){
-            $('#row-container'+i).css('background-color', colors[i]);
             }
           }
 

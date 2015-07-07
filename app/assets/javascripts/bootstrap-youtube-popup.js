@@ -379,6 +379,18 @@
     showinfo: 0,
     theme: 'dark',
     icons: {
+         'close': 'glyphicon glyphicon-remove',
+         'first': 'glyphicon glyphicon-fast-backward',
+         'prev': 'glyphicon glyphicon-step-backward',
+         'play': 'glyphicon glyphicon-play',
+         'pause': 'glyphicon glyphicon-pause',
+         'next': 'glyphicon glyphicon-step-forward',
+         'last': 'glyphicon glyphicon-fast-forward',
+         'stop': 'glyphicon glyphicon-stop',
+         'shuffle': 'glyphicon glyphicon-random',
+         'loop': 'glyphicon glyphicon-repeat',
+         'mute': 'glyphicon glyphicon-volume-off',
+         'list': 'glyphicon glyphicon-list'
       // 'close': 'glyphicon glyphicon-remove',
       // 'first': 'glyphicon glyphicon-fast-backward',
       // 'prev': 'glyphicon glyphicon-step-backward',
@@ -392,19 +404,19 @@
       // 'mute': 'glyphicon glyphicon-volume-off',
       // 'list': 'glyphicon glyphicon-list'
     },
-    translations: {
-      'close': 'Close',
-      'first': 'First',
-      'prev': 'Previous',
-      'play': 'Play',
-      'pause': 'Pause',
-      'next': 'Next',
-      'last': 'Last',
-      'stop': 'Stop',
-      'shuffle': 'Shuffle',
-      'loop': 'Loop',
-      'mute': 'Mute',
-      'list': 'Playlist'
+       translations: {
+         'close': 'Close',
+         'first': 'First',
+         'prev': 'Previous',
+         'play': 'Play',
+         'pause': 'Pause',
+         'next': 'Next',
+         'last': 'Last',
+         'stop': 'Stop',
+         'shuffle': 'Shuffle',
+         'loop': 'Loop',
+         'mute': 'Mute',
+         'list': 'Playlist'
     },
     errors: {
       'no_api': 'YouTube API not initialized!',
