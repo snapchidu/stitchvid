@@ -52,8 +52,8 @@ feature 'Videos upload and publish' do
   scenario 'shows tag name with associated video' do
       add_video_link()
       visit '/'
-      expect(page).to have_css('h3#tagname', :count => 1)
-      expect(find('h3#tagname')).to have_content('TEST')
+      expect(page).to have_css('h2#tagname', :count => 1)
+      expect(find('h2#tagname')).to have_content('TEST')
       expect(page).to have_css("iframe#ytplayer", :count => 1)
       expect(page.html).to include('lmyZMtPVodo')
   end
@@ -75,7 +75,6 @@ feature 'Videos upload and publish' do
     visit '/'
     mock_auth_hash
     click_link 'Create Stitch'
-    click_link 'Create Stitch'
     visit '/'
     expect{click_link 'TEST-ADDTO'}.to_not raise_error
     click_link 'or add a link to your stitch'
@@ -95,7 +94,6 @@ feature 'Video uploads and doesnt process' do
   def add_video_link(link="https://www.youtube.com/watch?v=lmyZMtPVodo",tags="test")
     visit '/'
     mock_auth_hash
-    click_link 'Create Stitch'
     click_link 'Create Stitch'
     click_link 'or add a link to your stitch'
     fill_in("Link", with: link)
