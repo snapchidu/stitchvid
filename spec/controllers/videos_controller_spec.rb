@@ -14,7 +14,7 @@ feature 'Videos upload and publish' do
   def add_video_link(link="https://www.youtube.com/watch?v=lmyZMtPVodo",tags="test")
     visit '/'
     mock_auth_hash
-    click_link 'Create Stitch'
+    click_link 'Sign in with Google'
     click_link 'Create Stitch'
     click_link 'or add a link to your stitch'
     fill_in("Link", with: link)
@@ -75,7 +75,7 @@ feature 'Videos upload and publish' do
     add_video_link()
     visit '/'
     mock_auth_hash
-    click_link 'Create Stitch'
+    click_link 'Sign in with Google'
     click_link 'Create Stitch'
     visit '/'
     expect{click_link 'TEST-ADDTO'}.to_not raise_error
@@ -96,7 +96,7 @@ feature 'Video uploads and doesnt process' do
   def add_video_link(link="https://www.youtube.com/watch?v=lmyZMtPVodo",tags="test")
     visit '/'
     mock_auth_hash
-    click_link 'Create Stitch'
+    click_link 'Sign in with Google'
     click_link 'Create Stitch'
     click_link 'or add a link to your stitch'
     fill_in("Link", with: link)
