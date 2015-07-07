@@ -9,6 +9,22 @@ class VideosController < ApplicationController
       end
     end
     @tags = Tag.top(8)
+
+
+    @client = Twitter::REST::Client.new do |config|
+      config.consumer_key        = "bD6YWvMq6sfwMpCqPchfEdYD4"
+      config.consumer_secret     = "N7eTSVVIjrkECaOYEHASacL1qiDXE5S1COiiY0s8QfvgTCvGLP"
+      config.access_token        = "22944799-wrm8KQA8QYbrvgKvjPpXH790kQSQKIRYH1U6wYdIg"
+      config.access_token_secret = "esP01cdF1AO0x6STsJA8y6evnNZjp6JvvHUFW4s5Arwjp"
+    end
+
+    @trends = []
+    @twitter_trends = @client.trends(23424975)
+    @twitter_trends.each do |trend|
+      @trends << trend.name
+    end
+
+    puts @trends
   end
 
   def new
