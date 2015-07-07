@@ -111,7 +111,8 @@
 
   /***********************[ Modal Functions ]***********************/
 
-  Modal = {
+  Modal =
+  {
     createMarkup: function(options) {
       return ['<div class="modal-dialog" id="YouTubePlaylistModalDialog">',
                 '<div class="modal-content" id="YouTubePlaylistModalContent">',
@@ -393,18 +394,18 @@
       // 'list': 'glyphicon glyphicon-list'
     },
     translations: {
-      'close': 'Close',
-      'first': 'First',
-      'prev': 'Previous',
-      'play': 'Play',
-      'pause': 'Pause',
-      'next': 'Next',
-      'last': 'Last',
-      'stop': 'Stop',
-      'shuffle': 'Shuffle',
-      'loop': 'Loop',
-      'mute': 'Mute',
-      'list': 'Playlist'
+      // 'close': 'Close',
+      // 'first': 'First',
+      // 'prev': 'Previous',
+      // 'play': 'Play',
+      // 'pause': 'Pause',
+      // 'next': 'Next',
+      // 'last': 'Last',
+      // 'stop': 'Stop',
+      // 'shuffle': 'Shuffle',
+      // 'loop': 'Loop',
+      // 'mute': 'Mute',
+      // 'list': 'Playlist'
     },
     errors: {
       'no_api': 'YouTube API not initialized!',
