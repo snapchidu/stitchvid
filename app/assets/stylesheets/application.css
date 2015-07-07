@@ -1,114 +1,39 @@
-/*page text*/
+
+
+
+
+  /*@font-face {
+    font-family: 'bebasregular';
+    src: url('BEBAS___-webfont.eot');
+    src: url('BEBAS___-webfont.eot?#iefix') format('embedded-opentype'),
+         url('BEBAS___-webfont.woff') format('woff'),
+         url('BEBAS___-webfont.ttf') format('truetype'),
+         url('BEBAS___-webfont.svg#bebasregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+  }*/
 
 
 
 
 
+/*Flash messages*/
 
-/*Buttons*/
-
-.bigbutton {
-  text-align: center;
+.pop{
+  color : white;
+  vertical-align: middle;
+  margin-left: 200px;
+  width: 500px;
+  margin-top: 15px;
 }
-
-.btn-big {
-
-  font-size: 50px;
-  width: 10em;
-}
-
-
-.submitbtn { color: black;text-align: center; margin-top: 5em;}
-
-
-/*input fields */
-
-.inputform{font-size: 20px;text-align: center;margin-top: 5em;}
-
-
-.formcontainer{ width:30em; height:15em; margin:0 auto; margin-top: 5em; background-color:#bdc3c7; border-radius: 10px; padding:1em;
- box-shadow:1px 1px 3px rgba(0,0,0,.3); color: white;}
-
-
- .inputfields{font-size: 1em;color: black; text-align: center; margin-top: 2em;}
-
-/*Containers*/
-
-.row-container{
- /*text-align: center;*/
- width: 0 auto;
- height: 25em;
- border: 2px solid black;
- margin-top:2em; 
- /*box-shadow:1em 1em 3em rgba(0,0,0,.3);*/
- overflow-x: scroll;
- overflow-y: hidden;
- white-space: nowrap;
-
-}
-
-.row-video{
-
- position: relative;
- width: 90%;
- margin-left: 5.5em;
- margin-top: 5em;
- height: 15em;
- background-color: #444;
- /*box-shadow:1em 1em 3em rgba(0,0,0,.3);*/
- overflow-x: scroll;
- overflow-y: hidden;
- white-space: nowrap;
-
-
-}
-
-.hashcontainer{
-
- float: left;
- white-space: nowrap;
- position: relative;
- margin-top: 3em;
- width: 5em;
-
-}
-
-.hashcontainer p { 
-
-  margin-left: 0.5em;
-  margin-top: 2em;
-  
-}
-
-iframe { margin: 2em 0 0 2.5em;}
-
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
 
  /*Buttons*/
 
-.bigbutton {
-  text-align: center;
-}
 
-.btn-big {
 
-  font-size: 50px;
-  width: 10em;
-}
+
+.stitch-btn { background-color: #e74c3c; color: white;}
 
 
 .submitbtn { color: black;text-align: center; margin-top: 5em;}
@@ -125,38 +50,106 @@ iframe { margin: 2em 0 0 2.5em;}
 
  .inputfields{font-size: 1em;color: black; text-align: center; margin-top: 2em;}
 
+ .navbar1 {
+
+   margin-bottom: 0;
+
+
+   }
+
 /*Containers*/
 
-.row-container{
- /*text-align: center;*/
- width: 0 auto;
- height: 25em;
- border: 2px solid black;
- margin-top:2em;
- /*box-shadow:1em 1em 3em rgba(0,0,0,.3);*/
- overflow-x: scroll;
- overflow-y: hidden;
- white-space: nowrap;
+.video-header {
+
+  position: relative;
+  overflow: hidden;
 
 }
 
-.row-video{
+video#bgvid {
+position: absolute;
+top: 50%;
+left: 50%;
+min-width: 100%;
+z-index: -100;
+-webkit-transform: translateX(-50%) translateY(-50%);
+transform: translateX(-50%) translateY(-50%);
+background: url(polina.jpg) no-repeat;
+background-size: cover;
+}
 
- position: relative;
- width: 90%;
- margin-left: 5.5em;
- margin-top: 5em;
- height: 15em;
- background-color: #444;
- /*box-shadow:1em 1em 3em rgba(0,0,0,.3);*/
- overflow-x: scroll;
- overflow-y: hidden;
- white-space: nowrap;
+.logo{
 
+  margin: 10% 0 10% 0;
+}
+
+.add-stitch{
+
+  text-align: center;
+  font-size: 5em;
+  background: #e67e22;
+}
+
+a.create-btn {
+
+  color: white;
+  text-decoration: none !important;
+}
+
+#tagname { text-align: center;}
+
+.scrollbox {
+
+margin-top: 2em;
+margin-bottom: 2em;
+overflow-x: scroll;
+overflow-y: hidden;
+white-space: nowrap;
+}
+
+.icon1 {
+
+font-size: 5em;
+text-decoration: none !important;
+color: white;
+}
+
+.stitchtext {
+
+  color: white;
+  font-size: 2em;
+}
+
+.addtext {
+
+  color: white;
+  font-size: 1.5em;
+}
+.centerstitch{
+margin-top: 7em;
+}
+
+.centeradd {
+
+margin-top: 7em;
 
 }
 
-.hashcontainer{
+
+
+/*.video-header img {
+    min-height: 250px;
+    padding-bottom: 50px;
+    margin-top: 50px;
+    -moz-box-shadow:  0 2px 5px 0 #333;
+    -webkit-box-shadow: 0 2px 5px 0 #333;
+    box-shadow: 0 2px 5px 0 #333;
+    position: absolute;
+    overflow: hidden;
+
+}*/
+
+/*.hashcontainer{
 
  float: left;
  white-space: nowrap;
@@ -164,20 +157,86 @@ iframe { margin: 2em 0 0 2.5em;}
  margin-top: 3em;
  width: 5em;
 
-}
+}*/
 
-.hashcontainer p {
+/*.hashcontainer h3 {
 
   margin-left: 0.5em;
-  margin-top: 2em;
+  margin-top: 1.2em;
+  color: #e74c3c;
 
+}*/
+
+/*.hashcontainer button {
+
+  margin-left: 0.5em;
+  margin-top: 1em;
+
+}*/
+
+
+
+
+/*.row-container{
+
+ width: 0 auto;
+ height: 25em;
+ border: 3px solid #e74c3c;
+ margin-top:2em;
+ overflow-x: scroll;
+ overflow-y: hidden;
+ white-space: nowrap;
+
+}*/
+
+/*.row-video{
+
+ position: relative;
+ width: 80%;
+ margin-left: 15.5em;
+ margin-top: 5em;
+ height: 15em;
+ background-color: #444;
+ overflow-x: scroll;
+ overflow-y: hidden;
+ white-space: nowrap;
 }
+*/
+/*#append-vid{ border: 3px solid black;
+             width: 256px;
+             height: 144px;
+           }*/
 
-iframe { margin: 2em 0 0 2.5em;}
 
-#stitch {
+/*iframe { margin: 2em 0 0 2.5em;}*/
+
+/*#stitch {
 
   height: 30px;
   width: 30px;
+
+}*/
+
+.sample{ float: left;}
+
+@media (max-width: 400px) {
+
+  iframe{ margin: 0;}
+
+  .mobile-header { text-align: center; background-color: #e74c3c; width: 100%; height: 20em; margin-top: 0;}
+
+  .mobile-header h3 { padding-top: 3em; color: white; font-size: 40px;}
+
+  .sample{float: right;}
+
+  .create-btn{ margin-top: 2em; background-color: white; color: #e74c3c;}
+
+  .stitch-container { margin: 0;}
+
+  #tagname-mobile { text-align: center; color: white;}
+
+  .row-container { border: none; margin-top: 0;}
+
+  .add { margin-top: 2.5%; margin-left: 45%; padding-bottom: 3px; color: white;}
 
 }
