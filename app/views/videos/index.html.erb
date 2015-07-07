@@ -18,7 +18,7 @@
         <% if current_user%>
           <%=link_to 'Create Stitch', new_video_upload_path, class: "btn-big create-btn" %>
         <%else%>
-          <a href="Create Stitch" class="btn-big create-btn" data-toggle="modal" data-target="#smallModal">Create Stitch</a>
+          <a href="#" class="btn-big create-btn" data-toggle="modal" data-target="#smallModal">Create Stitch</a>
 
          <div class="modal fade" id="smallModal" tabindex="-1" role="dialog" aria-labelledby="smallModal" aria-hidden="true">
            <div class="modal-dialog modal-sm">
