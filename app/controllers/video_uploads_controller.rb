@@ -23,7 +23,7 @@ class VideoUploadsController < ApplicationController
         flash[:error] = 'There was an error while uploading your video...'
       else
         Video.create({link: "https://www.youtube.com/watch?v=#{uploaded_video.id}", tag: @tag})
-        flash[:success] = 'Your video has been uploaded!'
+        flash[:success] = 'Your video has been uploaded! It is being processed and will appear shortly.'
       end
 
       redirect_to root_url

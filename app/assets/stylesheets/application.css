@@ -2,17 +2,10 @@
 
 
 
-  /*@font-face {
-    font-family: 'bebasregular';
-    src: url('BEBAS___-webfont.eot');
-    src: url('BEBAS___-webfont.eot?#iefix') format('embedded-opentype'),
-         url('BEBAS___-webfont.woff') format('woff'),
-         url('BEBAS___-webfont.ttf') format('truetype'),
-         url('BEBAS___-webfont.svg#bebasregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
+  .body {
+    @import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
 
-  }*/
+  }
 
 
 
@@ -81,23 +74,29 @@ background-size: cover;
 .logo{
 
   margin: 10% 0 10% 0;
-  opacity: 0.8;
 }
 
 .add-stitch{
 
   text-align: center;
   font-size: 5em;
-  background: #e67e22;
+  background: white;
 }
 
 a.create-btn {
 
-  color: white;
+  color: #545454;
   text-decoration: none !important;
 }
 
-#tagname { text-align: center;}
+#tagname {
+
+ text-align: center;
+ color: #545454;
+
+
+
+}
 
 .scrollbox {
 
@@ -106,24 +105,25 @@ margin-bottom: 2em;
 overflow-x: scroll;
 overflow-y: hidden;
 white-space: nowrap;
+
 }
 
 .icon1 {
 
 font-size: 5em;
 text-decoration: none !important;
-color: white;
+color: #545454;
 }
 
 .stitchtext {
 
-  color: white;
+  color: #545454;
   font-size: 2em;
 }
 
 .addtext {
 
-  color: white;
+  color: #545454;
   font-size: 1.5em;
 }
 .centerstitch{
