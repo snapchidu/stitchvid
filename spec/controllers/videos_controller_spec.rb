@@ -15,7 +15,6 @@ feature 'Videos upload and publish' do
     visit '/'
     mock_auth_hash
     click_link 'Sign in with Google'
-    click_link 'Create Stitch'
     click_link 'or add a link to your stitch'
     fill_in("Link", with: link)
     fill_in("Tag", with: tags)
@@ -76,7 +75,6 @@ feature 'Videos upload and publish' do
     visit '/'
     mock_auth_hash
     click_link 'Sign in with Google'
-    click_link 'Create Stitch'
     visit '/'
     expect{click_link 'TEST-ADDTO'}.to_not raise_error
     click_link 'or add a link to your stitch'
@@ -97,7 +95,6 @@ feature 'Video uploads and doesnt process' do
     visit '/'
     mock_auth_hash
     click_link 'Sign in with Google'
-    click_link 'Create Stitch'
     click_link 'or add a link to your stitch'
     fill_in("Link", with: link)
     fill_in("Tag", with: tags)

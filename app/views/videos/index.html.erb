@@ -11,11 +11,6 @@
   </div>
 
   <div class="row add-stitch ">
-    <% if current_user%>
-      <%=link_to 'Create Stitch', new_video_upload_path, class: "btn-big create-btn" %>
-    <%else%>
-      <%=link_to 'Create Stitch', '/auth/google_oauth2', class: "btn-big create-btn" %>
-    <%end%>
         <% if current_user%>
           <%=link_to 'Create Stitch', new_video_upload_path, class: "btn-big create-btn" %>
         <%else%>
