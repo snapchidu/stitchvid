@@ -15,7 +15,6 @@ feature 'Videos upload and publish' do
     visit '/'
     mock_auth_hash
     click_link 'Create Stitch'
-    click_link 'Create Stitch'
     click_link 'or add a link to your stitch'
     fill_in("Link", with: link)
     fill_in("Tag", with: tags)
