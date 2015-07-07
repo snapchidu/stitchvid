@@ -52,13 +52,13 @@
                  <span class="stitchtext">STITCH</span>
             </div>
                  <iframe class="stitch" type="text/html" width="360" height="250"
-                    src="https://www.youtube.com/embed/<%=tag.videos.first.uid%>?controls=0&modestbranding=1&autohide=1&playlist=<%= tag.videos.published.offset(1).pluck(:uid).join(',') -%>"
+                    src="https://www.youtube.com/embed/<%=tag.videos.first.uid%>?controls=0&modestbranding=1&rel=0&autohide=1&playlist=<%= tag.videos.published.offset(1).pluck(:uid).join(',') -%>"
                     frameborder="0" allowfullscreen>
                   </iframe>
             <div class="col-md-10">
               <section class="scrollbox">
              <% tag.videos.published.all.each do |video| %>
-                 <iframe frameborder="0" width="480" height="250" id="ytplayer" name="ytplayer" src= "https://www.youtube.com/embed/<%=video.uid%>?controls=0&modestbranding=1&autohide=1"></iframe>
+                 <iframe frameborder="0" width="480" height="250" id="ytplayer" name="ytplayer" src= "https://www.youtube.com/embed/<%=video.uid%>?controls=0&rel=0&modestbranding=1&autohide=1"></iframe>
              <% end %>
              </section>
             </div>
