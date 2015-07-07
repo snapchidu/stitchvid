@@ -191,6 +191,7 @@
           fs: options.fs,
           loop: options.loop,
           modestbranding: options.modestbranding,
+          rel: 0,
           origin: window.location.hostname,
           showinfo: options.showinfo,
           theme: options.theme
