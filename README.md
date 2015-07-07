@@ -35,3 +35,15 @@ User stories:
      I want to have to login to upload a video
 
 [!Waffle](https://waffle.io/snapchidu/stitchvid)
+
+## Installation instructions
+
+You should create a YouTube token for authorising general API requests.
+To do this go to https://console.developers.google.com/project and create a project,
+then in the credentials section select 'Create new key', and copy the resulting
+API key using `export YOUTUBE_AUTH_TOKEN='yourkeyhere'`` in ``.bash_profile` then
+reload your shell. Without this, uploaded videos will not be published on the site.
+
+You should also create a YouTube OAuth2 token pair from the same location, and save
+them as env variables YT_CLIENT_ID and YT_CLIENT_SECRET in the same way. Without
+these you won't be able to log into Google and upload videos via the application.
