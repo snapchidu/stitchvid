@@ -47,24 +47,16 @@ feature 'Videos upload and publish' do
     add_video_link()
     add_video_link('https://www.youtube.com/watch?v=qXsT2KtYZOM')
     page.find("#test-stitch").click
-    expect(page.html).to include('src="https://www.youtube.com/embed/lmyZMtPVodo?controls=0&modestbranding=1&autohide=1&playlist=qXsT2KtYZOM"')
+    expect(page.html).to include('src="https://www.youtube.com/embed/lmyZMtPVodo?controls=0&modestbranding=1&rel=0&autohide=1&playlist=qXsT2KtYZOM"')
   end
 
   scenario 'shows tag name with associated video' do
       add_video_link()
       visit '/'
-      expect(page).to have_css('div.hashcontainer', :count => 1)
-      expect(find('div.hashcontainer')).to have_content('TEST')
-      expect(page).to have_css("div.row-video iframe", :count => 1)
+      expect(page).to have_css('h3#tagname', :count => 1)
+      expect(find('h3#tagname')).to have_content('TEST')
+      expect(page).to have_css("iframe#ytplayer", :count => 1)
       expect(page.html).to include('lmyZMtPVodo')
-  end
-
-  scenario 'shows a tagged video in the correct tag row' do
-    add_video_link()
-    visit '/'
-    expect(page).to have_css('section.row-container div.row-video iframe#ytplayer')
-    expect(page).to have_css('iframe#ytplayer', :count => 1)
-    expect(page.html).to include('lmyZMtPVodo')
   end
 
   scenario 'shows tags by popularity: tag with three videos, then two, then one' do
@@ -86,13 +78,13 @@ feature 'Videos upload and publish' do
     click_link 'Create Stitch'
     click_link 'Create Stitch'
     visit '/'
-    expect{click_link 'ADD TO TEST'}.to_not raise_error
+    expect{click_link 'TEST-ADDTO'}.to_not raise_error
     click_link 'or add a link to your stitch'
     fill_in("Link", with: 'https://www.youtube.com/watch?v=CAA_zE5a3JQ')
     click_button 'Upload'
     visit '/'
-    expect(page).to have_css('.row-video', :count => 1)
-    within('div#test.row-video') do
+    expect(page).to have_css('section.scrollbox', :count => 1)
+    within('section.scrollbox') do
       expect(page).to have_css('iframe', :count => 2)
     end
   end
