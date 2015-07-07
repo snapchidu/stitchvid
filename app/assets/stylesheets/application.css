@@ -1,6 +1,39 @@
 
 
 
+<<<<<<< HEAD
+=======
+
+/*Sign in modal */
+
+
+#smallModal{
+
+
+top:48%;
+
+}
+
+.modal-header{
+  color: white;
+  background-color: #444;
+
+}
+
+.modal-body{
+
+  background-color:#2ecc71;
+
+}
+
+.modal-footer{
+  background-color:#3498db;
+  text-align: center;
+}
+
+
+
+>>>>>>> 26c85cd69a076fbe8329a40c307f12c880745d20
 /*Flash messages*/
 
 .pop{
