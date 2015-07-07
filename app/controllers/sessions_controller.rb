@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     end
     session[:user_id] = user.id
     flash[:success] = "Welcome, #{user.name}"
-    redirect_to root_url
+    redirect_to new_video_upload_path
   end
 
   def destroy

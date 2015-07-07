@@ -1,7 +1,5 @@
 
 
-
-
 /*Sign in modal */
 
 
@@ -28,8 +26,6 @@ top:48%;
   background-color:#3498db;
   text-align: center;
 }
-
-
 
 /*Flash messages*/
 
@@ -87,7 +83,6 @@ min-width: 100%;
 z-index: -100;
 -webkit-transform: translateX(-50%) translateY(-50%);
 transform: translateX(-50%) translateY(-50%);
-background: url(polina.jpg) no-repeat;
 background-size: cover;
 }
 
@@ -100,16 +95,23 @@ background-size: cover;
 
   text-align: center;
   font-size: 5em;
-  background: #e67e22;
+  background: white;
 }
 
 a.create-btn {
 
-  color: white;
+  color: #545454;
   text-decoration: none !important;
 }
 
-#tagname { text-align: center;}
+#tagname {
+
+ text-align: center;
+ color: #545454;
+
+
+
+}
 
 .scrollbox {
 
@@ -118,24 +120,25 @@ margin-bottom: 2em;
 overflow-x: scroll;
 overflow-y: hidden;
 white-space: nowrap;
+
 }
 
 .icon1 {
 
 font-size: 5em;
 text-decoration: none !important;
-color: white;
+color: #545454;
 }
 
 .stitchtext {
 
-  color: white;
+  color: #545454;
   font-size: 2em;
 }
 
 .addtext {
 
-  color: white;
+  color: #545454;
   font-size: 1.5em;
 }
 .centerstitch{
@@ -232,15 +235,36 @@ margin-top: 7em;
 
 .sample{ float: left;}
 
-@media (max-width: 400px) {
+@media (max-width: 420px) {
 
-  iframe{ margin: 0;}
+  iframe{ width: 327px;}
 
-  .mobile-header { text-align: center; background-color: #e74c3c; width: 100%; height: 20em; margin-top: 0;}
+ .mobile-header { text-align: center; background-color: #e74c3c;}
 
-  .mobile-header h3 { padding-top: 3em; color: white; font-size: 40px;}
+  .mobile-header h3 {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    vertical-align: middle;
+    text-align: center;
+    color: white;
+    font-size: 6em;
+  }
+
+  .add-stitch { font-size: 2.5em; padding: 1em 0 1em 0;}
 
   .sample{float: right;}
+
+  .centerstitch {
+
+    margin: 0.1em;
+  } .centeradd {
+    margin: 0.1em;
+  }
+
+}
+
+
+  /*
 
   .create-btn{ margin-top: 2em; background-color: white; color: #e74c3c;}
 
@@ -253,3 +277,4 @@ margin-top: 7em;
   .add { margin-top: 2.5%; margin-left: 45%; padding-bottom: 3px; color: white;}
 
 }
+*/
