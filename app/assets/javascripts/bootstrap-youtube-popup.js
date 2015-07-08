@@ -387,6 +387,7 @@
     showinfo: 0,
     theme: 'dark',
     icons: {
+
     //
     //   // 'close': 'glyphicon glyphicon-remove',
     //   // 'first': 'glyphicon glyphicon-fast-backward',
@@ -415,8 +416,8 @@
     //     //  'mute': 'Mute',
     //     //  'list': 'Playlist'
     //
-     },
-    errors: {
+  },
+  errors: {
       'no_api': 'YouTube API not initialized!',
     	'no_ids': 'No videos added to playlist!'
     },
