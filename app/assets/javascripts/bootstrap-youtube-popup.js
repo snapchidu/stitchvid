@@ -122,18 +122,18 @@
                   '</div>',
                   '<div class="modal-body" id="YouTubePlaylistModalBody" style="padding:0;"><div style="margin: ', margin, 'px;" id="YouTubePlaylistPlayer"></div></div>',
                   '<div class="modal-footer" style="text-align: center;">',
-                    '<button type="button" class="btn btn-default btn-sm" data-dismiss="modal" aria-label="', options.translations.close, '" title="', options.translations.close, '"><span class="', options.icons.close, '"></span></button>',
-                    '<button type="button" class="btn btn-default btn-sm mute-video" aria-label="', options.translations.mute, '" title="', options.translations.mute, '"><span class="', options.icons.mute, '"></span></button>',
-                    '<button type="button" class="btn btn-default btn-sm first-video" aria-label="', options.translations.first, '" title="', options.translations.first, '"><span class="', options.icons.first, '"></span></button>',
-                    '<button type="button" class="btn btn-default btn-sm prev-video" aria-label="', options.translations.prev, '" title="', options.translations.prev, '"><span class="', options.icons.prev, '"></span></button>',
-                    '<button type="button" class="btn btn-default btn-sm play-video" aria-label="', options.translations.play, '" title="', options.translations.play, '"><span class="', options.icons.play, '"></span></button>',
-                    '<button type="button" class="btn btn-default btn-sm pause-video hidden" aria-label="', options.translations.pause, '" title="', options.translations.pause, '"><span class="', options.icons.pause, '"></span></button>',
-                    '<button type="button" class="btn btn-default btn-sm next-video" aria-label="', options.translations.next, '" title="', options.translations.next, '"><span class="', options.icons.next, '"></span></button>',
-                    '<button type="button" class="btn btn-default btn-sm last-video" aria-label="', options.translations.last, '" title="', options.translations.last, '"><span class="', options.icons.last, '"></span></button>',
-                    '<button type="button" class="btn btn-default btn-sm shuffle-video" aria-label="', options.translations.shuffle, '" title="', options.translations.shuffle, '"><span class="', options.icons.shuffle, '"></span></button>',
-                    '<button type="button" class="btn btn-default btn-sm loop-video" aria-label="', options.translations.loop, '" title="', options.translations.loop, '"><span class="', options.icons.loop, '"></span></button>',
-                    '<button type="button" class="btn btn-default btn-sm stop-video" aria-label="', options.translations.stop, '" title="', options.translations.stop, '"><span class="', options.icons.stop, '"></span></button>',
-                    '<button type="button" class="btn btn-default btn-sm list-video" data-toggle="popover" data-placement="top" aria-label="', options.translations.list, '" title="', options.translations.list, '"><span class="', options.icons.list, '"></span></button>',
+                    // '<button type="button" class="btn btn-default btn-sm" data-dismiss="modal" aria-label="', options.translations.close, '" title="', options.translations.close, '"><span class="', options.icons.close, '"></span></button>',
+                    // '<button type="button" class="btn btn-default btn-sm mute-video" aria-label="', options.translations.mute, '" title="', options.translations.mute, '"><span class="', options.icons.mute, '"></span></button>',
+                    // '<button type="button" class="btn btn-default btn-sm first-video" aria-label="', options.translations.first, '" title="', options.translations.first, '"><span class="', options.icons.first, '"></span></button>',
+                    // '<button type="button" class="btn btn-default btn-sm prev-video" aria-label="', options.translations.prev, '" title="', options.translations.prev, '"><span class="', options.icons.prev, '"></span></button>',
+                    // '<button type="button" class="btn btn-default btn-sm play-video" aria-label="', options.translations.play, '" title="', options.translations.play, '"><span class="', options.icons.play, '"></span></button>',
+                    // '<button type="button" class="btn btn-default btn-sm pause-video hidden" aria-label="', options.translations.pause, '" title="', options.translations.pause, '"><span class="', options.icons.pause, '"></span></button>',
+                    // '<button type="button" class="btn btn-default btn-sm next-video" aria-label="', options.translations.next, '" title="', options.translations.next, '"><span class="', options.icons.next, '"></span></button>',
+                    // '<button type="button" class="btn btn-default btn-sm last-video" aria-label="', options.translations.last, '" title="', options.translations.last, '"><span class="', options.icons.last, '"></span></button>',
+                    // '<button type="button" class="btn btn-default btn-sm shuffle-video" aria-label="', options.translations.shuffle, '" title="', options.translations.shuffle, '"><span class="', options.icons.shuffle, '"></span></button>',
+                    // '<button type="button" class="btn btn-default btn-sm loop-video" aria-label="', options.translations.loop, '" title="', options.translations.loop, '"><span class="', options.icons.loop, '"></span></button>',
+                    // '<button type="button" class="btn btn-default btn-sm stop-video" aria-label="', options.translations.stop, '" title="', options.translations.stop, '"><span class="', options.icons.stop, '"></span></button>',
+                    // '<button type="button" class="btn btn-default btn-sm list-video" data-toggle="popover" data-placement="top" aria-label="', options.translations.list, '" title="', options.translations.list, '"><span class="', options.icons.list, '"></span></button>',
                     '<div class="list-popover-content hidden"></div>',
                   '</div>',
                 '</div>',
@@ -210,9 +210,13 @@
       event.target.cuePlaylist({
         playlist: playList
       });
-      _options.autoplay && event.target.playVideo();
+
+       _options.autoplay && event.target.playVideo();
+
       YTPControls.init();
-    },
+     },
+
+
 
     // The YouTube API calls this function when the player's state changes.
     onPlayerStateChange: function(event) {
@@ -371,7 +375,7 @@
     width: 640,
     height: 480,
     autohide: 2,
-    autoplay: 1,
+    autoplay: 0,
     color: 'red',
     controls: 1,
     fs: 1,
@@ -380,61 +384,35 @@
     showinfo: 0,
     theme: 'dark',
     icons: {
-         'close': 'glyphicon glyphicon-remove',
-         'first': 'glyphicon glyphicon-fast-backward',
-         'prev': 'glyphicon glyphicon-step-backward',
-         'play': 'glyphicon glyphicon-play',
-         'pause': 'glyphicon glyphicon-pause',
-         'next': 'glyphicon glyphicon-step-forward',
-         'last': 'glyphicon glyphicon-fast-forward',
-         'stop': 'glyphicon glyphicon-stop',
-         'shuffle': 'glyphicon glyphicon-random',
-         'loop': 'glyphicon glyphicon-repeat',
-         'mute': 'glyphicon glyphicon-volume-off',
-         'list': 'glyphicon glyphicon-list'
-      // 'close': 'glyphicon glyphicon-remove',
-      // 'first': 'glyphicon glyphicon-fast-backward',
-      // 'prev': 'glyphicon glyphicon-step-backward',
-      // 'play': 'glyphicon glyphicon-play',
-      // 'pause': 'glyphicon glyphicon-pause',
-      // 'next': 'glyphicon glyphicon-step-forward',
-      // 'last': 'glyphicon glyphicon-fast-forward',
-      // 'stop': 'glyphicon glyphicon-stop',
-      // 'shuffle': 'glyphicon glyphicon-random',
-      // 'loop': 'glyphicon glyphicon-repeat',
-      // 'mute': 'glyphicon glyphicon-volume-off',
-      // 'list': 'glyphicon glyphicon-list'
+    //
+    //   // 'close': 'glyphicon glyphicon-remove',
+    //   // 'first': 'glyphicon glyphicon-fast-backward',
+    //   // 'prev': 'glyphicon glyphicon-step-backward',
+    //   // 'play': 'glyphicon glyphicon-play',
+    //   // 'pause': 'glyphicon glyphicon-pause',
+    //   // 'next': 'glyphicon glyphicon-step-forward',
+    //   // 'last': 'glyphicon glyphicon-fast-forward',
+    //   // 'stop': 'glyphicon glyphicon-stop',
+    //   // 'shuffle': 'glyphicon glyphicon-random',
+    //   // 'loop': 'glyphicon glyphicon-repeat',
+    //   // 'mute': 'glyphicon glyphicon-volume-off',
+    //   // 'list': 'glyphicon glyphicon-list'
     },
-
-    translations: {
-      // 'close': 'Close',
-      // 'first': 'First',
-      // 'prev': 'Previous',
-      // 'play': 'Play',
-      // 'pause': 'Pause',
-      // 'next': 'Next',
-      // 'last': 'Last',
-      // 'stop': 'Stop',
-      // 'shuffle': 'Shuffle',
-      // 'loop': 'Loop',
-      // 'mute': 'Mute',
-      // 'list': 'Playlist'
-=======
        translations: {
-         'close': 'Close',
-         'first': 'First',
-         'prev': 'Previous',
-         'play': 'Play',
-         'pause': 'Pause',
-         'next': 'Next',
-         'last': 'Last',
-         'stop': 'Stop',
-         'shuffle': 'Shuffle',
-         'loop': 'Loop',
-         'mute': 'Mute',
-         'list': 'Playlist'
-
-    },
+    //     //  'close': 'Close',
+    //     //  'first': 'First',
+    //     //  'prev': 'Previous',
+    //     //  'play': 'Play',
+    //     //  'pause': 'Pause',
+    //     //  'next': 'Next',
+    //     //  'last': 'Last',
+    //     //  'stop': 'Stop',
+    //     //  'shuffle': 'Shuffle',
+    //     //  'loop': 'Loop',
+    //     //  'mute': 'Mute',
+    //     //  'list': 'Playlist'
+    //
+     },
     errors: {
       'no_api': 'YouTube API not initialized!',
     	'no_ids': 'No videos added to playlist!'
