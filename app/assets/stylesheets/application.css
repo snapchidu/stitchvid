@@ -233,6 +233,10 @@ margin-top: 7em;
 
 }*/
 
+.youtube-thumb {
+  vertical-align: inherit;
+}
+
 .sample{ float: left;}
 
 @media (max-width: 420px) {

@@ -46,6 +46,7 @@
                  <br>
                  <span class="stitchtext">STITCH</span>
             </div>
+
                  <iframe class="stitch" type="text/html" width="360" height="250"
                     src="https://www.youtube.com/embed/<%=tag.videos.first.uid%>?controls=0&modestbranding=1&rel=0&autohide=1&playlist=<%= tag.videos.published.offset(1).pluck(:uid).join(',') -%>"
                     frameborder="0" allowfullscreen>
@@ -53,7 +54,9 @@
             <div class="col-md-10">
               <section class="scrollbox">
              <% tag.videos.published.all.each do |video| %>
-                 <iframe frameborder="0" width="480" height="250" id="ytplayer" name="ytplayer" src= "https://www.youtube.com/embed/<%=video.uid%>?controls=0&rel=0&modestbranding=1&autohide=1"></iframe>
+             <div style="display:inline-block" id="ytplayer" class="youtube-player" data-id="<%= video.uid %>"></div>
+
+                 <!-- <iframe frameborder="0" width="480" height="250" id="ytplayer" name="ytplayer" src= "https://www.youtube.com/embed/<%=video.uid%>?controls=0&rel=0&modestbranding=1&autohide=1"></iframe> -->
              <% end %>
              </section>
             </div>
@@ -73,6 +76,34 @@
 
      <div class="sample">
      </div>
+
+     <script type="text/javascript">
+   		(function() {
+   			var v = document.getElementsByClassName("youtube-player");
+   			for (var n = 0; n < v.length; n++) {
+   				var p = document.createElement("div");
+          p.style = "display:inline-block";
+   				p.innerHTML = labnolThumb(v[n].dataset.id);
+   				p.onclick = labnolIframe;
+   				v[n].appendChild(p);
+   			};
+   		})();
+
+   		function labnolThumb(id) {
+   			return '<img class="youtube-thumb" src="https://i.ytimg.com/vi/' + id + '/hqdefault.jpg" width="480" height="250">';
+   		}
+
+   		function labnolIframe() {
+   			var iframe = document.createElement("iframe");
+   			iframe.setAttribute("src", "https://www.youtube.com/embed/" + this.parentNode.dataset.id + "?autoplay=1&autohide=2&border=0&wmode=opaque&enablejsapi=1&controls=0&showinfo=0&rel=0");
+   			iframe.setAttribute("frameborder", "0");
+   			iframe.setAttribute("id", "ytplayer");
+        iframe.setAttribute("width", "480");
+        iframe.setAttribute("height", "250");
+        iframe.setAttribute("style", "margin-top: 0");
+   			this.parentNode.replaceChild(iframe, this);
+   		}
+   	</script>
 
   <script type="text/javascript">
 
