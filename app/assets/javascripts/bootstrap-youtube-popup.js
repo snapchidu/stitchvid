@@ -217,8 +217,8 @@
       setTimeout(function() {
         YouTubePlayer.playVideo();
       }, 500)
+      event.target.setLoop(true);
      },
-
 
 
     // The YouTube API calls this function when the player's state changes.
