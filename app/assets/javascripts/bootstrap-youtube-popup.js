@@ -214,6 +214,9 @@
        _options.autoplay && event.target.playVideo();
 
       YTPControls.init();
+      setTimeout(function() {
+        YouTubePlayer.playVideo();
+      }, 500)
      },
 
 
