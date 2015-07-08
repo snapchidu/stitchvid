@@ -1,24 +1,37 @@
   <div class="row video-header">
-      <video autoplay loop poster="polina.jpg" id="bgvid">
-        <source src="stitchhd.webm" type="video/webm">
+      <video autoplay loop id="bgvid">
+        <source src="stitch.webm" type="video/webm">
         <source src="stitchhd.mp4" type="video/mp4">
       </video>
       <img class="center-block logo" src="stitch.png"/>
   </div>
 
-
-
-    <div class="mobile-header">
-      <h3>STITCH</h3>
-    </div>
-
-
+  <div class="row mobile-header">
+    <h3> STITCH </h3>
+  </div>
 
   <div class="row add-stitch ">
         <% if current_user%>
           <%=link_to 'Create Stitch', new_video_upload_path, class: "btn-big create-btn" %>
         <%else%>
-         <%=link_to 'Create Stitch', '/auth/google_oauth2', class: "btn-big create-btn" %>
+          <a href="#" class="btn-big create-btn" data-toggle="modal" data-target="#smallModal">Create Stitch</a>
+
+         <div class="modal fade" id="smallModal" tabindex="-1" role="dialog" aria-labelledby="smallModal" aria-hidden="true">
+           <div class="modal-dialog modal-sm">
+             <div class="modal-content">
+               <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                 <h4 class="modal-title" id="myModalLabel">Please Sign In To Continue!</h4>
+               </div>
+               <div class="modal-body">
+                 <h3><%=link_to 'Sign in with Google', '/auth/google_oauth2', class: "fa fa-google-plus" %></h3>
+                </div>
+                <div class="modal-footer">
+                  <h3>It's worth it :)</h3>
+                </div>
+             </div>
+           </div>
+         </div>
        <%end%>
   </div>
 
@@ -27,26 +40,33 @@
      <% @tags.all.each do |tag| %>
       <% if tag.videos.published.count > 0 %>
          <div class="row" id="row-color<%= @tags.index(tag) %>">
-            <h3 id="tagname"><%=tag.name.upcase%></h3>
+            <h2 id="tagname"><%=tag.name.upcase%></h2>
             <div class="col-md-1 text-center centerstitch">
                  <a class='glyphicon glyphicon-play-circle icon1' id='<%= tag.name -%>-stitch' data-playlist="<%=tag.videos.published.pluck(:uid).join(',') %>"></a>
                  <br>
                  <span class="stitchtext">STITCH</span>
             </div>
+
                  <iframe class="stitch" type="text/html" width="360" height="250"
-                    src="https://www.youtube.com/embed/<%=tag.videos.first.uid%>?controls=0&modestbranding=1&autohide=1&playlist=<%= tag.videos.published.offset(1).pluck(:uid).join(',') -%>"
+                    src="https://www.youtube.com/embed/<%=tag.videos.first.uid%>?controls=0&modestbranding=1&rel=0&autohide=1&playlist=<%= tag.videos.published.offset(1).pluck(:uid).join(',') -%>"
                     frameborder="0" allowfullscreen>
                   </iframe>
             <div class="col-md-10">
               <section class="scrollbox">
              <% tag.videos.published.all.each do |video| %>
-                 <iframe frameborder="0" width="480" height="250" id="ytplayer" name="ytplayer" src= "https://www.youtube.com/embed/<%=video.uid%>?controls=0&modestbranding=1&autohide=1"></iframe>
+             <div style="display:inline-block" id="ytplayer" class="youtube-player" data-id="<%= video.uid %>"></div>
+
+                 <!-- <iframe frameborder="0" width="480" height="250" id="ytplayer" name="ytplayer" src= "https://www.youtube.com/embed/<%=video.uid%>?controls=0&rel=0&modestbranding=1&autohide=1"></iframe> -->
              <% end %>
              </section>
             </div>
 
             <div class="col-md-1 centeradd text-center">
-              <%=link_to "", new_video_upload_path(tag: tag.name), class: "glyphicon glyphicon-plus icon1", id: "#{tag.name.upcase}-ADDTO"%>
+              <% if current_user%>
+                <%=link_to "", new_video_upload_path(tag: tag.name), class: "glyphicon glyphicon-plus icon1", id: "#{tag.name.upcase}-ADDTO"%>
+              <% else %>
+                <%=link_to "", '/auth/google_oauth2', class: "glyphicon glyphicon-plus icon1", id: "#{tag.name.upcase}-ADDTO"%>
+              <% end %>
             <br>
              <span class="addtext">ADD VIDEO</span>
             </div>
@@ -57,12 +77,39 @@
      <div class="sample">
      </div>
 
+     <script type="text/javascript">
+   		(function() {
+   			var v = document.getElementsByClassName("youtube-player");
+   			for (var n = 0; n < v.length; n++) {
+   				var p = document.createElement("div");
+          p.style = "display:inline-block";
+   				p.innerHTML = labnolThumb(v[n].dataset.id);
+   				p.onclick = labnolIframe;
+   				v[n].appendChild(p);
+   			};
+   		})();
+
+   		function labnolThumb(id) {
+   			return '<img class="youtube-thumb" src="https://i.ytimg.com/vi/' + id + '/hqdefault.jpg" width="480" height="250">';
+   		}
+
+   		function labnolIframe() {
+   			var iframe = document.createElement("iframe");
+   			iframe.setAttribute("src", "https://www.youtube.com/embed/" + this.parentNode.dataset.id + "?autoplay=1&autohide=2&border=0&wmode=opaque&enablejsapi=1&controls=0&showinfo=0&rel=0");
+   			iframe.setAttribute("frameborder", "0");
+   			iframe.setAttribute("id", "ytplayer");
+        iframe.setAttribute("width", "480");
+        iframe.setAttribute("height", "250");
+        iframe.setAttribute("style", "margin-top: 0");
+   			this.parentNode.replaceChild(iframe, this);
+   		}
+   	</script>
+
   <script type="text/javascript">
 
     $(document).ready(function() {
 
       $('.stitch').hide();
-      $('.add').hide();
       $('.mobile-header').hide();
 
       changeTagContainerBg();
@@ -75,32 +122,19 @@
       function mobileStyling() {
 
           if ($('.sample').css('float') == 'right'){
-              $('.stitch').show();
-              $('.add').show();
+              $('.logo').hide();
               $('.mobile-header').show();
-              $('.row-video').hide();
-              $('.video-header').hide();
-              $('.hashcontainer').remove();
-              changeRowContainerBg();
+              $('.icon1').YouTubePlaylistModal({ autoplay:1, width:320, height:240 });
               } else {
-                  $('.stitch').hide();
-                  $('.add').hide();
-                  $('.row-video').show();
+                $('.logo').show();
+                $('.mobile-header').hide();
               }
             }
 
           function changeTagContainerBg(){
-          colors = ['#e67e22', '#2ecc71', '#3498db', '#e74c3c','#e67e22', '#2ecc71', '#3498db', '#e74c3c'];
+          colors = ['#CB99C9', '#FDFD96', '#779ECB', '#B19CD9','#FF7878', '#2ecc71', '#3498db', '#55aadd'];
           for(var i = 0; i < <%= @tags.length %>; i++){
             $('#row-color'+i).css('background-color', colors[i]);
-            }
-          }
-
-
-        function changeRowContainerBg(){
-          colors = ['#e67e22', '#2ecc71', '#3498db', '#e74c3c'];
-          for(var i = 0; i < <%= @tags.length %>; i++){
-            $('#row-container'+i).css('background-color', colors[i]);
             }
           }
 
