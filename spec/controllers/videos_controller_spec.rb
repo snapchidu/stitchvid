@@ -54,7 +54,7 @@ feature 'Videos upload and publish' do
       visit '/'
       expect(page).to have_css('h2#tagname', :count => 1)
       expect(find('h2#tagname')).to have_content('TEST')
-      expect(page).to have_css("iframe#ytplayer", :count => 1)
+      expect(page).to have_css("div.youtube-player", :count => 1)
       expect(page.html).to include('lmyZMtPVodo')
   end
 
@@ -83,7 +83,7 @@ feature 'Videos upload and publish' do
     visit '/'
     expect(page).to have_css('section.scrollbox', :count => 1)
     within('section.scrollbox') do
-      expect(page).to have_css('iframe', :count => 2)
+      expect(page).to have_css('div.youtube-player', :count => 2)
     end
   end
 
