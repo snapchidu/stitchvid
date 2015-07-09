@@ -216,7 +216,7 @@
       YTPControls.init();
       setTimeout(function() {
         YouTubePlayer.playVideo();
-      }, 500)
+      }, 400)
       event.target.setLoop(true);
      },
 
@@ -388,7 +388,6 @@
     theme: 'dark',
     icons: {
 
-    //
     //   // 'close': 'glyphicon glyphicon-remove',
     //   // 'first': 'glyphicon glyphicon-fast-backward',
     //   // 'prev': 'glyphicon glyphicon-step-backward',

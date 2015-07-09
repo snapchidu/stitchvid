@@ -1,6 +1,6 @@
   <div class="row video-header">
       <video autoplay loop id="bgvid">
-        <source src="stitch.webm" type="video/webm">
+        <source src="stitchhd.webm" type="video/webm">
         <source src="stitchhd.mp4" type="video/mp4">
       </video>
       <img class="center-block logo" src="stitch.png"/>
@@ -73,6 +73,31 @@
 
      <div class="sample">
      </div>
+
+     <!-- <div class="row add-stitch ">
+           <% if current_user%>
+             <%=link_to 'Create Stitch', new_video_upload_path, class: "btn-big create-btn" %>
+           <%else%>
+             <a href="#" class="btn-big create-btn" data-toggle="modal" data-target="#smallModal">Create Stitch</a>
+
+            <div class="modal fade" id="smallModal" tabindex="-1" role="dialog" aria-labelledby="smallModal" aria-hidden="true">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Please Sign In To Continue!</h4>
+                  </div>
+                  <div class="modal-body">
+                    <h3><%=link_to 'Sign in with Google', '/auth/google_oauth2', class: "fa fa-google-plus" %></h3>
+                   </div>
+                   <div class="modal-footer">
+                     <h3>It's worth it :)</h3>
+                   </div>
+                </div>
+              </div>
+            </div>
+          <%end%>
+     </div> -->
 
   <script type="text/javascript">
 
